@@ -42,7 +42,6 @@ local-setup:
 
 .PHONY: install
 install:
-	rm -rf pdm.lock
 	pdm install
 
 .PHONY: update
