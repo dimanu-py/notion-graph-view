@@ -27,7 +27,7 @@ all-test-integration:
 
 .PHONY: all-test-acceptance
 all-test-acceptance:
-	scripts/tests/acceptance.sh
+	pdm run behave tests/delivery/api/features
 
 .PHONY: coverage
 coverage:
