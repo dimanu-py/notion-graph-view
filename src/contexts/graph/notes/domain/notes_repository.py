@@ -1,2 +1,3 @@
 class NotesRepository:
-    pass
+    def search(self, database_id: str) -> dict:
+        raise NotImplementedError
