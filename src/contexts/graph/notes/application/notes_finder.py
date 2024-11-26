@@ -8,4 +8,4 @@ class NotesFinder:
         self.repository = repository
 
     def __call__(self, database_id: str) -> dict:
-        return {}
+        return self.repository.search(database_id)
