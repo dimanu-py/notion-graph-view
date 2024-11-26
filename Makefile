@@ -27,7 +27,7 @@ all-integration:
 
 .PHONY: all-acceptance
 all-acceptance:
-    pdm run pytest -n auto -m "acceptance" -ra
+	pdm run behave tests/delivery/api/features
 
 .PHONY: coverage
 coverage:
