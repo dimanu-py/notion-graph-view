@@ -51,8 +51,7 @@ update:
 
 .PHONY: add-dependency
 add-dependency:
-	@read -p "Dependency to install: " PACKAGE_NAME; \
-	pdm add $$PACKAGE_NAME
+	scripts/add-dependency.sh
 
 .PHONY: check-typing
 check-typing:
