@@ -1,9 +1,11 @@
+import pytest
 from doublex import Spy, assert_that, called
 
 from src.contexts.graph.notes.application.notes_finder import NotesFinder
 from src.contexts.graph.notes.domain.notes_repository import NotesRepository
 
 
+@pytest.mark.unit
 class TestNotesFinder:
     ANY_ID = "any_id"
 

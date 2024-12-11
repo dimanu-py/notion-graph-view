@@ -1,0 +1,2 @@
+class NoteUrl:
+    pass
