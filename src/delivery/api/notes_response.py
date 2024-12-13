@@ -7,7 +7,7 @@ class NoteResponse(BaseModel):
     id: str
     url: str
     title: str
-    related_notes: dict
+    related_notes: list[str]
 
 
 class NotesResponse(BaseModel):
