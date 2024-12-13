@@ -13,14 +13,19 @@ class NotionNotesRepository(NotesRepository):
     def search(self, database_id: NotesDatabaseId) -> list[Note]:
         raw_notes = self._client.databases.query(database_id=database_id.value)
 
-        notes = []
-        for result in raw_notes.get("results", []):  # type: ignore
-            note = Note.create(
-                id_=result["id"],
-                url=result["url"],
-                title=result["properties"]["Name"]["title"][0]["plain_text"],
-                related_notes=result["properties"]["Related Notes"],
-            )
-            notes.append(note)
+        return [
+            self._create_note_from_json(note)
+            for note in raw_notes["results"]  # type: ignore
+        ]
 
-        return notes
+    @staticmethod
+    def _create_note_from_json(note: dict) -> Note:
+        id_ = note["id"]
+        url = note["url"]
+        title = note["properties"]["Name"]["title"][0]["text"]["content"]
+        related_notes = [
+            relation["id"]
+            for relation in note["properties"]["Related Notes"]["relation"]
+        ]
+
+        return Note.create(id_=id_, url=url, title=title, related_notes=related_notes)
