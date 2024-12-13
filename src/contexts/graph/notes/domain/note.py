@@ -22,7 +22,7 @@ class Note:
 
     @classmethod
     def create(
-        cls, id_: str, url: str, title: str, related_notes: list[dict]
+        cls, id_: str, url: str, title: str, related_notes: dict
     ) -> "Note":
         return Note(
             id_=NoteId(id_),
