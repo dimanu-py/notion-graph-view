@@ -1,5 +1,6 @@
 from behave import given, when, then
 from fastapi.testclient import TestClient
+import os
 
 from src.delivery.api.main import app
 
@@ -8,7 +9,7 @@ client = TestClient(app)
 
 @given("I have a valid database ID")
 def step_given_valid_database_id(context: dict) -> None:
-    context.database_id = "2963e08dfb7219e68a785fc9d2dgd756"
+    context.database_id = os.environ["NOTION_TEST_DATABASE_ID"]
 
 
 @when("I make a GET request to /graph/<database_id>")
