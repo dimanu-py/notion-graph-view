@@ -25,5 +25,8 @@ jobs:
         run: |
           make check-typing
       - name: Tests
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_TEST_DATABASE_ID: ${{ secrets.NOTION_TEST_DATABASE_ID }}
         run: |
           make test
