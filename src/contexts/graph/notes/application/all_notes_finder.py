@@ -1,3 +1,4 @@
+from src.contexts.graph.notes.domain.notes_database_id import NotesDatabaseId
 from src.contexts.graph.notes.domain.notes_repository import NotesRepository
 
 
@@ -8,4 +9,4 @@ class AllNotesFinder:
         self._repository = repository
 
     def __call__(self, database_id: str) -> dict:
-        return self._repository.search(database_id=database_id)
+        return self._repository.search(database_id=NotesDatabaseId(database_id))

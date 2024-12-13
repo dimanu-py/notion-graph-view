@@ -1,3 +1,4 @@
+from src.contexts.graph.notes.domain.notes_database_id import NotesDatabaseId
 from src.contexts.graph.notes.domain.notes_repository import NotesRepository
 from src.contexts.graph.notes.infra.notion_client import NotionClient
 
@@ -8,8 +9,8 @@ class NotionNotesRepository(NotesRepository):
     def __init__(self, client: NotionClient) -> None:
         self._client = client
 
-    def search(self, database_id: str) -> dict[str, list[dict]]:
-        raw_notes = self._client.databases.query(database_id=database_id)
+    def search(self, database_id: NotesDatabaseId) -> dict[str, list[dict]]:
+        raw_notes = self._client.databases.query(database_id=database_id.value)
 
         notes = []
         for result in raw_notes.get("results", []):  # type: ignore
