@@ -12,9 +12,9 @@ def step_given_valid_database_id(context: dict) -> None:
     context.database_id = os.environ["NOTION_TEST_DATABASE_ID"]
 
 
-@when("I make a GET request to /graph/<database_id>")
+@when("I make a GET request to /notes/<database_id>")
 def step_when_make_get_request(context: dict) -> None:
-    response = client.get(f"/graph/{context.database_id}")
+    response = client.get(f"/notes/{context.database_id}")
     context.response = response
 
 
