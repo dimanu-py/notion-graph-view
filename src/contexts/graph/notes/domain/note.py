@@ -29,7 +29,7 @@ class Note:
             related_notes=RelatedNotes(related_notes),
         )
 
-    def to_dict(self) -> dict:
+    def to_primitives(self) -> dict:
         return {
             "id": self._id.value,
             "url": self._url.value,

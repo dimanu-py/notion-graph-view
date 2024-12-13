@@ -23,6 +23,6 @@ async def get_database_notes(
 
     notes = notes_finder(database_id)
 
-    primitive_notes = [NoteResponse(**note.to_dict()) for note in notes]
+    primitive_notes = [NoteResponse(**note.to_primitives()) for note in notes]
     response = NotesResponse(notes=primitive_notes)
     return JSONResponse(content=response.model_dump(), status_code=status.HTTP_200_OK)
