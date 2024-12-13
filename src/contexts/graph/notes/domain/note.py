@@ -21,9 +21,7 @@ class Note:
         self._related_notes = related_notes
 
     @classmethod
-    def create(
-        cls, id_: str, url: str, title: str, related_notes: dict
-    ) -> "Note":
+    def create(cls, id_: str, url: str, title: str, related_notes: dict) -> "Note":
         return Note(
             id_=NoteId(id_),
             url=NoteUrl(url),
