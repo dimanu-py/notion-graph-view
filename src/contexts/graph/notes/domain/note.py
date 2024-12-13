@@ -29,6 +29,14 @@ class Note:
             related_notes=RelatedNotes(related_notes),
         )
 
+    def to_dict(self) -> dict:
+        return {
+            "id": self._id.value,
+            "url": self._url.value,
+            "title": self._title.value,
+            "related_notes": self._related_notes.value,
+        }
+
     @override
     def __repr__(self) -> str:
         return f"Note(id={self._id.value}, title={self._title.value}"
