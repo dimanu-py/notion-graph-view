@@ -2,7 +2,7 @@
 
 function get_bounded_contexts_with_changes {
   changed_files=$(git diff --name-only HEAD)
-  bounded_contexts=$(echo "$changed_files" | grep -E 'src/contexts/([^/]*/)*(infra)' | sed -E 's|src/contexts/([^/]*)/.*|\1|' | sort -u)
+  bounded_contexts=$(echo "$changed_files" | grep -E 'instant_python/contexts/([^/]*/)*(infra)' | sed -E 's|instant_python/contexts/([^/]*)/.*|\1|' | sort -u)
   echo "$bounded_contexts"
 }
 
@@ -23,7 +23,7 @@ function run_tests {
   for context in $contexts; do
     echo "Running integration tests for bounded context: $context"
     infra_folders=$(find tests/contexts/"$context" -type d -name "infra")
-    pdm run pytest -n auto $infra_folders -ra
+    uv run pytest $infra_folders -ra
   done
 }
 
