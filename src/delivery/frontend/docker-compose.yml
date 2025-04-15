@@ -1,8 +1,0 @@
-services:
-  frontend:
-    build: .
-    container_name: notion-graph-frontend
-    volumes:
-      - .:/app
-    ports:
-      - "8080:8080"
