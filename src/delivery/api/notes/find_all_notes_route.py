@@ -3,9 +3,9 @@ import os
 from fastapi import APIRouter, Depends, status
 from fastapi.responses import JSONResponse
 
-from src.contexts.graph.notes.application.all_notes_finder import AllNotesFinder
-from src.contexts.graph.notes.infra.notion_client import NotionClient
-from src.contexts.graph.notes.infra.notion_notes_repository import NotionNotesRepository
+from src.graph.notes.application.all_notes_finder import AllNotesFinder
+from src.graph.notes.infra.notion_client import NotionClient
+from src.graph.notes import NotionNotesRepository
 from src.delivery.api.notes_response import NotesResponse, NoteResponse
 
 router = APIRouter(prefix="/notes", tags=["Notes"])
