@@ -29,10 +29,6 @@ allprojects {
         implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-        implementation("org.springframework.boot:spring-boot-starter-web")
-        implementation("org.springframework:spring-context")
-        implementation("org.springframework.boot:spring-boot-starter")
-        implementation("org.springframework.boot:spring-boot-starter-actuator")
 
         compileOnly("org.projectlombok:lombok")
         annotationProcessor("org.projectlombok:lombok")
@@ -72,6 +68,13 @@ subprojects {
             mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
         }
     }
+
+    dependencies {
+        implementation("org.springframework:spring-jdbc")
+        implementation("org.springframework:spring-web")
+
+        testImplementation("io.mockk:mockk:1.14.0")
+    }
 }
 
 configurations {
@@ -81,7 +84,16 @@ configurations {
 }
 
 dependencies {
+    implementation(project(":contexts:notes"))
+
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework:spring-context")
+    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 kotlin {
