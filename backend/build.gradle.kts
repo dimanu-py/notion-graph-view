@@ -94,6 +94,8 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.rest-assured:rest-assured")
+    testImplementation("io.rest-assured:kotlin-extensions")
 }
 
 kotlin {
