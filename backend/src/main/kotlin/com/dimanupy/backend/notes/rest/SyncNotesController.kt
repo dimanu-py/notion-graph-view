@@ -12,6 +12,6 @@ class SyncNotesController(private val notesSyncer: NotesSyncer) {
 
     @PutMapping("/sync/{databaseId}")
     fun syncNotes(@PathVariable databaseId: String) {
-        throw NotImplementedError()
+        notesSyncer(databaseId)
     }
 }
