@@ -5,6 +5,7 @@ import com.dimanupy.notes.note.domain.NotionRepository
 
 class NotesSyncer(private val notionRepository: NotionRepository, private val notesRepository: NotesRepository) {
     operator fun invoke(id: String) {
-        throw NotImplementedError()
+        val notionNotes = notionRepository.sync(databaseId = id)
+        notesRepository.save(notionNotes)
     }
 }
