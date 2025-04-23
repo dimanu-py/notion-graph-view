@@ -1,5 +1,6 @@
 package com.dimanupy.notes.note.application
 
+import com.dimanupy.notes.note.domain.NoteMother
 import com.dimanupy.notes.note.domain.NotesRepository
 import com.dimanupy.notes.note.domain.NotionRepository
 import io.mockk.every
@@ -24,7 +25,10 @@ class NotesSyncerShould {
     @Test
     fun `sync notes from Notion database`() {
         val databaseId = "valid-database-id"
-        val notes = listOf("Note 1", "Note 2")
+        val notes = listOf(
+            NoteMother.create("Note 1", "https://notion.example.com/notes/1"),
+            NoteMother.create("Note 2", "https://notion.example.com/notes/2"),
+        )
         every { notionRepository.sync(databaseId) } returns notes
 
         notesSyncer(databaseId)
