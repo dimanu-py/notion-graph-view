@@ -1,6 +1,9 @@
 package com.dimanupy.notes.note.application
 
-class NotesSyncer {
+import com.dimanupy.notes.note.domain.NotesRepository
+import com.dimanupy.notes.note.domain.NotionRepository
+
+class NotesSyncer(private val notionRepository: NotionRepository, private val notesRepository: NotesRepository) {
     operator fun invoke(id: String) {
         throw NotImplementedError()
     }
