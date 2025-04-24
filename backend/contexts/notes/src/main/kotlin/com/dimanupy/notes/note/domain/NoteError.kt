@@ -1,10 +1,14 @@
 package com.dimanupy.notes.note.domain
 
+sealed class NoteError(
+    override val message: String,
+    override val cause: Throwable? = null
+) : RuntimeException(message, cause)
 
-class NoteUrlInvalidFormat : Throwable("The URL is not a valid Notion URL") {
+class NoteUrlInvalidFormat : NoteError("Note URL must fulfill Notion URL format") {
 
 }
 
-class NoteUrlCannotBeEmpty : Throwable("Note URL cannot be empty") {
+class NoteUrlCannotBeEmpty : NoteError("Note URL cannot be empty") {
 
 }
