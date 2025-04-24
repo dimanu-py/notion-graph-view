@@ -26,8 +26,8 @@ class NotesSyncerShould {
     fun `sync notes from Notion database`() {
         val databaseId = "valid-database-id"
         val notes = listOf(
-            NoteMother.create("Note 1", "https://notion.example.com/notes/1"),
-            NoteMother.create("Note 2", "https://notion.example.com/notes/2"),
+            NoteMother.create("Note 1", "https://www.notion.so/example_/notes/1"),
+            NoteMother.create("Note 2", "https://www.notion.so/example_notes/2"),
         )
         every { notionRepository.sync(databaseId) } returns notes
 
