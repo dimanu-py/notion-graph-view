@@ -11,6 +11,9 @@ repositories {
 }
 
 dependencies {
+    implementation ("org.http4k:http4k-core:5.12.0.0")
+    implementation("org.json:json:20250107")
+
     testImplementation("com.github.javafaker:javafaker:1.0.2") {
         exclude(group = "org.yaml", module = "snakeyaml")
     }
