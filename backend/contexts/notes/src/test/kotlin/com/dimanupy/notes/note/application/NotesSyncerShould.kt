@@ -26,11 +26,11 @@ class NotesSyncerShould {
     fun `sync notes from Notion database`() {
         val databaseId = "valid-database-id"
         val notes = listOf(NoteMother.any(), NoteMother.any())
-        every { notionRepository.sync(databaseId) } returns notes
+        every { notionRepository.fetch(databaseId) } returns notes
 
         notesSyncer(databaseId)
 
-        verify { notionRepository.sync(databaseId) }
+        verify { notionRepository.fetch(databaseId) }
         verify { notesRepository.save(notes)}
     }
 }

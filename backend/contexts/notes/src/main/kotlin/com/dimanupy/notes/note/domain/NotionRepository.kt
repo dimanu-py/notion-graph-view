@@ -1,6 +1,6 @@
 package com.dimanupy.notes.note.domain
 
 interface NotionRepository {
-    fun sync(databaseId: String): List<Note>
+    fun fetch(databaseId: String): List<Note>
 
 }

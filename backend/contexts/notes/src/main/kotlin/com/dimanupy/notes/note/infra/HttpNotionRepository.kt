@@ -4,7 +4,7 @@ import com.dimanupy.notes.note.domain.Note
 import com.dimanupy.notes.note.domain.NotionRepository
 
 class HttpNotionRepository : NotionRepository {
-    override fun sync(databaseId: String): List<Note> {
+    override fun fetch(databaseId: String): List<Note> {
         throw NotImplementedError()
     }
 }

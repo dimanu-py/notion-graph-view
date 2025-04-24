@@ -28,7 +28,7 @@ class HttpNotionRepositoryShould {
             )
         )
 
-        val notes = httpNotionRepository.sync(databaseId)
+        val notes = httpNotionRepository.fetch(databaseId)
 
         assertEquals(expectedNotes, notes)
     }
