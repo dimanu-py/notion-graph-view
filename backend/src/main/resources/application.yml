@@ -4,3 +4,5 @@ management:
     web:
       exposure:
         include: health,info
+notion.integration:
+  apiKey: ${NOTION_API_KEY:empty-api-key}
