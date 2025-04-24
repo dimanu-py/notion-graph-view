@@ -1,6 +1,7 @@
 package com.dimanupy.notes.note.infra
 
 import com.dimanupy.notes.note.domain.NoteMother
+import org.http4k.client.JavaHttpClient
 import org.junit.jupiter.api.BeforeEach
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -11,7 +12,7 @@ class HttpNotionRepositoryShould {
 
     @BeforeEach
     fun setUp() {
-        httpNotionRepository = HttpNotionRepository()
+        httpNotionRepository = HttpNotionRepository(client = JavaHttpClient())
     }
 
     @Test
