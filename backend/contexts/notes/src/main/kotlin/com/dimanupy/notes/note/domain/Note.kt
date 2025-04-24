@@ -4,5 +4,12 @@ class Note(
     private val title: NoteTitle,
     private val url: NoteUrl
 ) {
-
+    companion object {
+        fun fromPrimitives(title: String, url: String): Note {
+            return Note(
+                title = NoteTitle(title),
+                url = NoteUrl(url)
+            )
+        }
+    }
 }
