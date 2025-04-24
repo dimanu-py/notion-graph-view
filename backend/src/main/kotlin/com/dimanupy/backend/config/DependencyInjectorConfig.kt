@@ -7,5 +7,5 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class DependencyInjectorConfig {
     @Bean
-    fun notesSyncer(): NotesSyncer = NotesSyncer()
+    fun notesSyncer(): NotesSyncer = NotesSyncer(notionRepository, notesRepository)
 }
