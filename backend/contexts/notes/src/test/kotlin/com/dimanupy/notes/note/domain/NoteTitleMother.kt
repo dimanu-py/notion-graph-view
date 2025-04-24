@@ -1,8 +1,10 @@
 package com.dimanupy.notes.note.domain
 
+import com.dimanupy.notes.shared.domain.RandomGenerator
+
 object NoteTitleMother {
 
-    fun create(name: String): NoteTitle {
-        return NoteTitle(name)
+    fun create(value: String = RandomGenerator.title()): NoteTitle {
+        return NoteTitle(value)
     }
 }
