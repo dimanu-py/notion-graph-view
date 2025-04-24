@@ -1,0 +1,9 @@
+package com.dimanupy.notes.shared.domain
+
+import com.github.javafaker.Faker
+
+object RandomGenerator {
+    private val faker = Faker()
+
+    fun title(): String = faker.book().title()
+}
