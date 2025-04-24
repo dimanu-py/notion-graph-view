@@ -1,0 +1,51 @@
+package com.dimanupy.backend.notes.rest
+
+import io.restassured.RestAssured
+import io.restassured.http.ContentType
+import io.restassured.module.kotlin.extensions.Then
+import io.restassured.module.kotlin.extensions.When
+import io.restassured.response.Response
+import kotlin.test.Test
+import org.junit.jupiter.api.BeforeEach
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.web.server.LocalServerPort
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class SyncNotesControllerShould {
+
+    @LocalServerPort
+    private val port: Int = 0
+
+    private lateinit var databaseId: String
+
+    @BeforeEach
+    fun setUp() {
+        RestAssured.port = port
+    }
+
+    @Test
+    fun `should get current notes from valid Notion database`() {
+        givenAValidNotionDatabaseId()
+
+        val response = whenIFetchDatabaseNotesFromNotion()
+
+        thenStatusCodeIsOk(response)
+    }
+
+    private fun givenAValidNotionDatabaseId() {
+        databaseId = "valid-database-id"
+    }
+
+    private fun whenIFetchDatabaseNotesFromNotion(): Response {
+        return When {
+            put("/notes/sync/$databaseId")
+        }
+    }
+
+    private fun thenStatusCodeIsOk(response: Response) {
+        response.Then {
+            contentType(ContentType.JSON)
+            statusCode(200)
+        }
+    }
+}
