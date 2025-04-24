@@ -90,6 +90,7 @@ dependencies {
     implementation("org.springframework:spring-context")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation ("org.http4k:http4k-core:5.12.0.0")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
