@@ -9,10 +9,11 @@ import kotlin.test.assertEquals
 class HttpNotionRepositoryShould {
 
     private lateinit var httpNotionRepository: HttpNotionRepository
+    private val connectionData = NotionConnectionData(apiKey = System.getenv("NOTION_API_KEY"))
 
     @BeforeEach
     fun setUp() {
-        httpNotionRepository = HttpNotionRepository(client = JavaHttpClient())
+        httpNotionRepository = HttpNotionRepository(client = JavaHttpClient(), connectionData = connectionData)
     }
 
     @Test

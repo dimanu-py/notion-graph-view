@@ -8,7 +8,7 @@ import org.http4k.core.Request
 import org.http4k.core.Response
 import org.json.JSONObject
 
-class HttpNotionRepository(private val client: HttpHandler) : NotionRepository {
+class HttpNotionRepository(private val client: HttpHandler, private val connectionData: NotionConnectionData) : NotionRepository {
     override fun fetch(databaseId: String): List<Note> {
         val request = buildRequestFor(databaseId)
 
@@ -18,7 +18,7 @@ class HttpNotionRepository(private val client: HttpHandler) : NotionRepository {
     }
 
     private fun buildRequestFor(databaseId: String) = Request(Method.POST, "https://api.notion.com/v1/databases/$databaseId/query")
-        .header("Authorization", "Bearer ${System.getenv("NOTION_API_KEY")}")
+        .header("Authorization", "Bearer ${connectionData.apiKey}")
         .header("Notion-Version", "2022-06-28")
 
     private fun parseResponse(content: Response): List<Note> {
