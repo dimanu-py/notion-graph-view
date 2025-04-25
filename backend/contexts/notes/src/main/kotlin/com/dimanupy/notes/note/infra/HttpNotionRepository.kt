@@ -1,9 +1,6 @@
 package com.dimanupy.notes.note.infra
 
-import com.dimanupy.notes.note.domain.InvalidNotionDatabase
-import com.dimanupy.notes.note.domain.Note
-import com.dimanupy.notes.note.domain.NotionRepository
-import com.dimanupy.notes.note.domain.UnexpectedNotionException
+import com.dimanupy.notes.note.domain.*
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request
@@ -11,14 +8,14 @@ import org.http4k.core.Response
 import org.json.JSONObject
 
 class HttpNotionRepository(private val client: HttpHandler, private val connectionData: NotionConnectionData) : NotionRepository {
-    override fun fetch(databaseId: String): List<Note> {
+    override fun fetch(databaseId: NotionDatabaseId): List<Note> {
         val request = buildRequestFor(databaseId)
 
         val rawResponse = client(request)
 
         when (rawResponse.status.code) {
             200 -> return parseResponse(rawResponse)
-            404 -> throw InvalidNotionDatabase(databaseId)
+            404 -> throw InvalidNotionDatabase(databaseId.value)
             else -> throw UnexpectedNotionException(
                 statusCode = rawResponse.status.code,
                 body = rawResponse.bodyString()
@@ -26,7 +23,7 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
         }
     }
 
-    private fun buildRequestFor(databaseId: String) = Request(Method.POST, "https://api.notion.com/v1/databases/$databaseId/query")
+    private fun buildRequestFor(databaseId: NotionDatabaseId) = Request(Method.POST, "https://api.notion.com/v1/databases/${databaseId.value}/query")
         .header("Authorization", "Bearer ${connectionData.apiKey}")
         .header("Notion-Version", "2022-06-28")
 

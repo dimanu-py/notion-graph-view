@@ -8,4 +8,8 @@ object NotionDatabaseIdMother {
         return NotionDatabaseId(value)
     }
 
+    fun fromTestEnvironment(): NotionDatabaseId {
+        return NotionDatabaseId(System.getenv("TEST_DATABASE_ID"))
+    }
+
 }

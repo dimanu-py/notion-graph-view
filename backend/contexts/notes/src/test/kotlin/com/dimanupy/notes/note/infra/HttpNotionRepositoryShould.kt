@@ -2,6 +2,7 @@ package com.dimanupy.notes.note.infra
 
 import com.dimanupy.notes.note.domain.InvalidNotionDatabase
 import com.dimanupy.notes.note.domain.NoteMother
+import com.dimanupy.notes.note.domain.NotionDatabaseIdMother
 import com.dimanupy.notes.note.domain.UnexpectedNotionException
 import io.mockk.every
 import io.mockk.mockk
@@ -27,7 +28,7 @@ class HttpNotionRepositoryShould {
 
     @Test
     fun `fetch notes from valid Notion database`() {
-        val databaseId = System.getenv("TEST_DATABASE_ID")
+        val databaseId = NotionDatabaseIdMother.fromTestEnvironment()
         val expectedNotes = listOf(
             NoteMother.create(
                 url = "https://www.notion.so/Note-test-integration-2-15bf5bab5d4e807bbf58ca937660b2fb",
@@ -46,7 +47,7 @@ class HttpNotionRepositoryShould {
 
     @Test
     fun `throw error if database has not integration set`() {
-        val databaseId = "e7141ea7-a862-4f70-bb6a-b7ce0fe0eb3f"
+        val databaseId = NotionDatabaseIdMother.create()
 
         val error = assertThrows<InvalidNotionDatabase> {
             httpNotionRepository.fetch(databaseId)
@@ -60,9 +61,10 @@ class HttpNotionRepositoryShould {
         val client = mockk<HttpHandler>()
         every { client(any()) } returns Response(Status.INTERNAL_SERVER_ERROR)
         val repository = HttpNotionRepository(client = client, connectionData = connectionData)
+        val databaseId = NotionDatabaseIdMother.create()
 
         val error = assertThrows<UnexpectedNotionException> {
-            repository.fetch("a38d8024-298e-4f87-bf50-3ae698c0a8f3")
+            repository.fetch(databaseId)
         }
 
         assertContains(error.message, "Unexpected error when fetching Notion database")

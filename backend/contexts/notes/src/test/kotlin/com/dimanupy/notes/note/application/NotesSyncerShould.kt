@@ -2,6 +2,7 @@ package com.dimanupy.notes.note.application
 
 import com.dimanupy.notes.note.domain.NoteMother
 import com.dimanupy.notes.note.domain.NotesRepository
+import com.dimanupy.notes.note.domain.NotionDatabaseIdMother
 import com.dimanupy.notes.note.domain.NotionRepository
 import io.mockk.every
 import io.mockk.mockk
@@ -24,11 +25,11 @@ class NotesSyncerShould {
 
     @Test
     fun `sync notes from Notion database`() {
-        val databaseId = "valid-database-id"
+        val databaseId = NotionDatabaseIdMother.create()
         val notes = listOf(NoteMother.any(), NoteMother.any())
         every { notionRepository.fetch(databaseId) } returns notes
 
-        notesSyncer(databaseId)
+        notesSyncer(databaseId.value)
 
         verify { notionRepository.fetch(databaseId) }
         verify { notesRepository.save(notes)}
