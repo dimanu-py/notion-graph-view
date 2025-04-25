@@ -29,6 +29,10 @@ allprojects {
         implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        implementation("org.jetbrains.exposed:exposed-core:0.61.0")
+        implementation("org.jetbrains.exposed:exposed-dao:0.61.0")
+        implementation("org.jetbrains.exposed:exposed-jdbc:0.61.0")
+        implementation("org.postgresql:postgresql:42.5.4")
 
         compileOnly("org.projectlombok:lombok")
         annotationProcessor("org.projectlombok:lombok")
@@ -37,6 +41,10 @@ allprojects {
         testImplementation(kotlin("test"))
         testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
+        testImplementation("org.testcontainers:postgresql:1.19.0")
+        testImplementation("org.postgresql:postgresql:42.5.4")
+        testImplementation("org.testcontainers:junit-jupiter:1.19.0")
+        testImplementation("com.zaxxer:HikariCP:5.0.1")
     }
 
     tasks.withType<Test> {
