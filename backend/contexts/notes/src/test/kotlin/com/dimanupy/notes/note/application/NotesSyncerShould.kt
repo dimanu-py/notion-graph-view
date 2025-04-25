@@ -1,14 +1,13 @@
 package com.dimanupy.notes.note.application
 
-import com.dimanupy.notes.note.domain.NoteMother
-import com.dimanupy.notes.note.domain.NotesRepository
-import com.dimanupy.notes.note.domain.NotionDatabaseIdMother
-import com.dimanupy.notes.note.domain.NotionRepository
+import com.dimanupy.notes.note.domain.*
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.assertThrows
 import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class NotesSyncerShould {
 
@@ -33,5 +32,17 @@ class NotesSyncerShould {
 
         verify { notionRepository.fetch(databaseId) }
         verify { notesRepository.save(notes)}
+    }
+
+    @Test
+    fun `not sync notes if database id is not uuid`() {
+        val databaseId = "invalid-id"
+
+        val error = assertThrows<InvalidDatabaseIdFormat> {
+            notesSyncer(databaseId)
+        }
+
+        assertEquals("Database id must have a valid UUID format: $databaseId", error.message)
+        verify(exactly = 0) { notionRepository.fetch(any()) }
     }
 }
