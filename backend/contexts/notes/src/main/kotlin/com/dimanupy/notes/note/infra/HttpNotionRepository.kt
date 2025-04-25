@@ -1,7 +1,9 @@
 package com.dimanupy.notes.note.infra
 
+import com.dimanupy.notes.note.domain.InvalidNotionDatabase
 import com.dimanupy.notes.note.domain.Note
 import com.dimanupy.notes.note.domain.NotionRepository
+import com.dimanupy.notes.note.domain.UnexpectedNotionException
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request

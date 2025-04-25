@@ -1,4 +1,4 @@
-package com.dimanupy.notes.note.infra
+package com.dimanupy.notes.note.domain
 
 sealed class NotionError(
     override val message: String,

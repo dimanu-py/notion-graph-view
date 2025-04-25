@@ -1,6 +1,8 @@
 package com.dimanupy.notes.note.infra
 
+import com.dimanupy.notes.note.domain.InvalidNotionDatabase
 import com.dimanupy.notes.note.domain.NoteMother
+import com.dimanupy.notes.note.domain.UnexpectedNotionException
 import io.mockk.every
 import io.mockk.mockk
 import org.http4k.client.JavaHttpClient
