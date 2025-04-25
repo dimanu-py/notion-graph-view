@@ -14,15 +14,14 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
 
         val rawResponse = client(request)
 
-        if (rawResponse.status.code == 404) throw InvalidNotionDatabase(databaseId)
-        if (rawResponse.status.code != 200) {
-            throw UnexpectedNotionException(
+        when (rawResponse.status.code) {
+            200 -> return parseResponse(rawResponse)
+            404 -> throw InvalidNotionDatabase(databaseId)
+            else -> throw UnexpectedNotionException(
                 statusCode = rawResponse.status.code,
                 body = rawResponse.bodyString()
             )
         }
-
-        return parseResponse(rawResponse)
     }
 
     private fun buildRequestFor(databaseId: String) = Request(Method.POST, "https://api.notion.com/v1/databases/$databaseId/query")
@@ -30,6 +29,7 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
         .header("Notion-Version", "2022-06-28")
 
     private fun parseResponse(content: Response): List<Note> {
+        // TODO: Extract this responsibility to a JSON parser class
         val results = JSONObject(content.bodyString()).getJSONArray("results")
         val notes = mutableListOf<Note>()
 
