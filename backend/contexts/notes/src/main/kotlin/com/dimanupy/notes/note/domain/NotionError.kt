@@ -11,3 +11,4 @@ class UnexpectedNotionException(
     private val statusCode: Int,
     private val body: String
 ) : NotionError("Unexpected error when fetching Notion database. Notion server returned $statusCode with body $body")
+class InvalidDatabaseIdFormat(private val id: String) : NotionError("Database id must have a valid UUID format: $id")
