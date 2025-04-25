@@ -1,10 +1,16 @@
 package com.dimanupy.notes.note.infra
 
 import com.dimanupy.notes.note.domain.NoteMother
+import io.mockk.every
+import io.mockk.mockk
 import org.http4k.client.JavaHttpClient
+import org.http4k.core.HttpHandler
+import org.http4k.core.Response
+import org.http4k.core.Status
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.assertThrows
 import kotlin.test.Test
+import kotlin.test.assertContains
 import kotlin.test.assertEquals
 
 class HttpNotionRepositoryShould {
@@ -45,5 +51,18 @@ class HttpNotionRepositoryShould {
         }
 
         assertEquals("Database with id $databaseId is not shared with your integration.", error.message)
+    }
+
+    @Test
+    fun `throw error if Notion server returns a 500 status code`() {
+        val client = mockk<HttpHandler>()
+        every { client(any()) } returns Response(Status.INTERNAL_SERVER_ERROR)
+        val repository = HttpNotionRepository(client = client, connectionData = connectionData)
+
+        val error = assertThrows<UnexpectedNotionException> {
+            repository.fetch("a38d8024-298e-4f87-bf50-3ae698c0a8f3")
+        }
+
+        assertContains(error.message, "Unexpected error when fetching Notion database")
     }
 }
