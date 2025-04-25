@@ -14,6 +14,8 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
 
         val rawResponse = client(request)
 
+        if (rawResponse.status.code == 404) throw InvalidNotionDatabase(databaseId)
+
         return parseResponse(rawResponse)
     }
 
