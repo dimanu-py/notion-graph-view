@@ -9,9 +9,10 @@ class PostgresNotesRepository: NotesRepository {
     override fun save(notes: List<Note>) {
         transaction {
             notes.forEach { note ->
+                val notePrimitives = note.toPrimitives()
                 NotesModel.insert {
-                    it[title] = note.title.value
-                    it[url] = note.url.value
+                    it[title] = notePrimitives["title"]!!
+                    it[url] = notePrimitives["url"]!!
                 }
             }
         }
