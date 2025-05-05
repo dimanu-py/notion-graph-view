@@ -1,8 +1,8 @@
 package com.dimanupy.notes.note.domain
 
 data class Note(
-    private val title: NoteTitle,
-    private val url: NoteUrl
+    val title: NoteTitle,
+    val url: NoteUrl
 ) {
     companion object {
         fun fromPrimitives(title: String, url: String): Note {
