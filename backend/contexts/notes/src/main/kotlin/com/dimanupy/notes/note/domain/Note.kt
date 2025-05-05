@@ -12,4 +12,9 @@ data class Note(
             )
         }
     }
+
+    fun toPrimitives(): Map<String, String> = mapOf(
+        "title" to title.value,
+        "url" to url.value
+    )
 }
