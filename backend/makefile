@@ -19,3 +19,11 @@ run: # Run application
 linter: # Run spotless linter
 	@./gradlew spotlessApply --warning-mode all
 	@./gradlew spotlessCheck --warning-mode all
+
+.PHONY: up
+up: ## Create and start containers.
+	@docker-compose up -d
+
+.PHONY: down
+down: ## Stop and remove containers.
+	@docker-compose down -v --remove-orphans
