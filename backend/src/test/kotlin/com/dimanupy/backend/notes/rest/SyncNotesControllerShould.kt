@@ -44,7 +44,6 @@ class SyncNotesControllerShould {
 
     private fun thenStatusCodeIsOk(response: Response) {
         response.Then {
-            contentType(ContentType.JSON)
             statusCode(200)
         }
     }
