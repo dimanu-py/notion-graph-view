@@ -19,8 +19,5 @@ abstract class ValueObject<T>(private val _value: T) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return value?.hashCode() ?: 0
-    }
-
+    override fun hashCode(): Int = value?.hashCode() ?: 0
 }

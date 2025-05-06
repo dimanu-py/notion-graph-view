@@ -4,7 +4,5 @@ import com.dimanupy.notes.shared.domain.RandomGenerator
 
 object NoteUrlMother {
 
-    fun create(value: String = RandomGenerator.notionUrl()): NoteUrl {
-        return NoteUrl(value)
-    }
+    fun create(value: String = RandomGenerator.notionUrl()): NoteUrl = NoteUrl(value)
 }

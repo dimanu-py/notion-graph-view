@@ -13,7 +13,5 @@ class NoteTitle(private val _value: String) : ValueObject<String>(_value) {
         }
     }
 
-    override fun toString(): String {
-        return "Title('$_value')"
-    }
+    override fun toString(): String = "Title('$_value')"
 }

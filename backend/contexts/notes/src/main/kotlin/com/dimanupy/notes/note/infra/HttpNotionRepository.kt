@@ -1,6 +1,10 @@
 package com.dimanupy.notes.note.infra
 
-import com.dimanupy.notes.note.domain.*
+import com.dimanupy.notes.note.domain.InvalidNotionDatabase
+import com.dimanupy.notes.note.domain.Note
+import com.dimanupy.notes.note.domain.NotionDatabaseId
+import com.dimanupy.notes.note.domain.NotionRepository
+import com.dimanupy.notes.note.domain.UnexpectedNotionException
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request
@@ -18,7 +22,7 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
             404 -> throw InvalidNotionDatabase(databaseId.value)
             else -> throw UnexpectedNotionException(
                 statusCode = rawResponse.status.code,
-                body = rawResponse.bodyString()
+                body = rawResponse.bodyString(),
             )
         }
     }
@@ -43,6 +47,5 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
             notes.add(Note.fromPrimitives(title, url))
         }
         return notes
-
     }
 }

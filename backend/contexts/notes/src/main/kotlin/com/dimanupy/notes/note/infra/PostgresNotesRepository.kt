@@ -6,7 +6,7 @@ import org.jetbrains.exposed.sql.batchInsert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
-class PostgresNotesRepository: NotesRepository {
+class PostgresNotesRepository : NotesRepository {
     override fun save(notes: List<Note>) {
         transaction {
             NotesModel.batchInsert(notes) { note ->
@@ -15,11 +15,9 @@ class PostgresNotesRepository: NotesRepository {
         }
     }
 
-    override fun findAll(): List<Note> {
-        return transaction {
-            NotesModel.selectAll().map { note ->
-                NotesModel.toAggregate(note)
-            }
+    override fun findAll(): List<Note> = transaction {
+        NotesModel.selectAll().map { note ->
+            NotesModel.toAggregate(note)
         }
     }
 }

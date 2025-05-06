@@ -28,7 +28,6 @@ class PostgresNotionRepositoryShould {
             withPassword("test")
             start()
         }
-
     }
 
     @BeforeAll
@@ -46,7 +45,7 @@ class PostgresNotionRepositoryShould {
     }
 
     @AfterEach
-    fun cleanup () = transaction { SchemaUtils.drop(NotesModel) }
+    fun cleanup() = transaction { SchemaUtils.drop(NotesModel) }
 
     @AfterAll
     fun tearDown() = postgresContainer.stop()
@@ -61,6 +60,4 @@ class PostgresNotionRepositoryShould {
         assert(savedNotes.isNotEmpty())
         assertEquals(savedNotes, notes)
     }
-
-
 }

@@ -4,12 +4,7 @@ import com.dimanupy.notes.shared.domain.RandomGenerator
 
 object NotionDatabaseIdMother {
 
-    fun create(value: String = RandomGenerator.uuid()): NotionDatabaseId {
-        return NotionDatabaseId(value)
-    }
+    fun create(value: String = RandomGenerator.uuid()): NotionDatabaseId = NotionDatabaseId(value)
 
-    fun fromTestEnvironment(): NotionDatabaseId {
-        return NotionDatabaseId(System.getenv("TEST_DATABASE_ID"))
-    }
-
+    fun fromTestEnvironment(): NotionDatabaseId = NotionDatabaseId(System.getenv("TEST_DATABASE_ID"))
 }

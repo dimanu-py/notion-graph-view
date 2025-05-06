@@ -1,14 +1,13 @@
 package com.dimanupy.backend.notes.rest
 
 import io.restassured.RestAssured
-import io.restassured.http.ContentType
 import io.restassured.module.kotlin.extensions.Then
 import io.restassured.module.kotlin.extensions.When
 import io.restassured.response.Response
-import kotlin.test.Test
 import org.junit.jupiter.api.BeforeEach
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.server.LocalServerPort
+import kotlin.test.Test
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SyncNotesControllerShould {
@@ -36,10 +35,8 @@ class SyncNotesControllerShould {
         databaseId = System.getenv("TEST_DATABASE_ID")
     }
 
-    private fun whenIFetchDatabaseNotesFromNotion(): Response {
-        return When {
-            put("/notes/sync/$databaseId")
-        }
+    private fun whenIFetchDatabaseNotesFromNotion(): Response = When {
+        put("/notes/sync/$databaseId")
     }
 
     private fun thenStatusCodeIsOk(response: Response) {

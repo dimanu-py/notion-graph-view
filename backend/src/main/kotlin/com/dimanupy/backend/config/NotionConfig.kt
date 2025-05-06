@@ -19,7 +19,7 @@ class NotionConfig {
     @Bean
     fun notionRepository(notionConnectionData: NotionConnectionData) = HttpNotionRepository(
         client = JavaHttpClient(),
-        connectionData = notionConnectionData
+        connectionData = notionConnectionData,
     )
 
     @Bean
@@ -29,9 +29,9 @@ class NotionConfig {
     @Bean
     fun database(databaseConnectionData: DatabaseConnectionData): Database {
         val hikariConfig = HikariConfig().apply {
-            jdbcUrl         = databaseConnectionData.url
-            username        = databaseConnectionData.username
-            password        = databaseConnectionData.password
+            jdbcUrl = databaseConnectionData.url
+            username = databaseConnectionData.username
+            password = databaseConnectionData.password
             driverClassName = "org.postgresql.Driver"
             maximumPoolSize = 10
         }

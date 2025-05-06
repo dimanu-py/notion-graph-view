@@ -1,6 +1,10 @@
 package com.dimanupy.notes.note.application
 
-import com.dimanupy.notes.note.domain.*
+import com.dimanupy.notes.note.domain.InvalidDatabaseIdFormat
+import com.dimanupy.notes.note.domain.NoteMother
+import com.dimanupy.notes.note.domain.NotesRepository
+import com.dimanupy.notes.note.domain.NotionDatabaseIdMother
+import com.dimanupy.notes.note.domain.NotionRepository
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -31,7 +35,7 @@ class NotesSyncerShould {
         notesSyncer(databaseId.value)
 
         verify { notionRepository.fetch(databaseId) }
-        verify { notesRepository.save(notes)}
+        verify { notesRepository.save(notes) }
     }
 
     @Test

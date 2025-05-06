@@ -16,10 +16,8 @@ object NotesModel : Table("notes") {
         statement[url] = data["url"]!!
     }
 
-    fun toAggregate(note: ResultRow): Note {
-        return Note.fromPrimitives(
-            title = note[title],
-            url = note[url]
-        )
-    }
+    fun toAggregate(note: ResultRow): Note = Note.fromPrimitives(
+        title = note[title],
+        url = note[url],
+    )
 }

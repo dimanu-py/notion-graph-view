@@ -37,7 +37,7 @@ class HttpNotionRepositoryShould {
             NoteMother.create(
                 url = "https://www.notion.so/Note-test-integration-1-15bf5bab5d4e8064b9cedd66d2024fc6",
                 title = "Note test integration 1",
-            )
+            ),
         )
 
         val notes = httpNotionRepository.fetch(databaseId)
