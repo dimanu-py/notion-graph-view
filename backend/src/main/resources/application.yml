@@ -1,8 +1,17 @@
-spring.application.name: backend
+spring:
+  application:
+    name: backend
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
 management:
   endpoints:
     web:
       exposure:
         include: health,info
+
 notion.integration:
   apiKey: ${NOTION_API_KEY:empty-api-key}
