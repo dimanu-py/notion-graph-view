@@ -44,7 +44,6 @@ allprojects {
         testImplementation("org.testcontainers:postgresql:1.19.0")
         testImplementation("org.postgresql:postgresql:42.5.4")
         testImplementation("org.testcontainers:junit-jupiter:1.19.0")
-        testImplementation("com.zaxxer:HikariCP:5.0.1")
     }
 
     tasks.withType<Test> {
@@ -95,6 +94,7 @@ dependencies {
     implementation(project(":contexts:notes"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework:spring-context")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
