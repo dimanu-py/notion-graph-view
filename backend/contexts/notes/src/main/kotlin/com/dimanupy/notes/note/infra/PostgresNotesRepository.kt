@@ -13,4 +13,8 @@ class PostgresNotesRepository: NotesRepository {
             }
         }
     }
+
+    override fun findAll(): List<Note> {
+        throw NotImplementedError()
+    }
 }

@@ -12,6 +12,7 @@ import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 import kotlin.test.Test
+import kotlin.test.assertEquals
 
 @Testcontainers
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -55,6 +56,10 @@ class PostgresNotionRepositoryShould {
         val notes = listOf(NoteMother.any(), NoteMother.any(), NoteMother.any())
 
         postgresRepository.save(notes)
+
+        val savedNotes = postgresRepository.findAll()
+        assert(savedNotes.isNotEmpty())
+        assertEquals(savedNotes, notes)
     }
 
 
