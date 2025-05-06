@@ -33,7 +33,7 @@ class SyncNotesControllerShould {
     }
 
     private fun givenAValidNotionDatabaseId() {
-        databaseId = "valid-database-id"
+        databaseId = System.getenv("TEST_DATABASE_ID")
     }
 
     private fun whenIFetchDatabaseNotesFromNotion(): Response {
