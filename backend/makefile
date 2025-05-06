@@ -4,19 +4,19 @@ help:  ## Show this help.
 			awk 'BEGIN {FS = ":.*## "}; {printf "%-30s %s\n", $$1, $$2}'
 
 .PHONY: build
-build: # Build application
+build: ## Build application
 	@./gradlew build --warning-mode all
 
 .PHONY: test
-test: # Run all test
+test: ## Run all test
 	@./gradlew test --warning-mode all
 
 .PHONY: run
-run: # Run application
+run: ## Run application
 	@./gradlew run --warning-mode all
 
 .PHONY: linter
-linter: # Run spotless linter
+linter: ## Run spotless linter
 	@./gradlew spotlessApply --warning-mode all
 	@./gradlew spotlessCheck --warning-mode all
 
