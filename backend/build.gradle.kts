@@ -3,7 +3,7 @@ plugins {
     kotlin("plugin.spring") version "1.9.25"
     id("org.springframework.boot") version "3.4.4"
     id("io.spring.dependency-management") version "1.1.7"
-    id("com.diffplug.spotless") version "5.7.0"
+    id("com.diffplug.spotless") version "7.0.2"
     application
 }
 
@@ -53,7 +53,9 @@ allprojects {
 
     configure<com.diffplug.gradle.spotless.SpotlessExtension> {
         kotlin {
-            ktlint().userData(mapOf("insert_final_newline" to "true"))
+            ktlint().editorConfigOverride(mapOf(
+                "insert_final_newline" to "true"
+            ))
         }
         kotlinGradle {
             ktlint()
