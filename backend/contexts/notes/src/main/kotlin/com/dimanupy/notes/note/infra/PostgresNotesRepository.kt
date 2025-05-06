@@ -3,6 +3,7 @@ package com.dimanupy.notes.note.infra
 import com.dimanupy.notes.note.domain.Note
 import com.dimanupy.notes.note.domain.NotesRepository
 import org.jetbrains.exposed.sql.batchInsert
+import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class PostgresNotesRepository: NotesRepository {
@@ -15,6 +16,10 @@ class PostgresNotesRepository: NotesRepository {
     }
 
     override fun findAll(): List<Note> {
-        throw NotImplementedError()
+        return transaction {
+            NotesModel.selectAll().map { note ->
+                NotesModel.toAggregate(note)
+            }
+        }
     }
 }
