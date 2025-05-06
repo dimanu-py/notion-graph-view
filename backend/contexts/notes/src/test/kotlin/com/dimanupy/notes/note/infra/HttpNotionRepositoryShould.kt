@@ -53,7 +53,7 @@ class HttpNotionRepositoryShould {
             httpNotionRepository.fetch(databaseId)
         }
 
-        assertEquals("Database with id $databaseId is not shared with your integration.", error.message)
+        assertEquals("Database with id ${databaseId.value} is not shared with your integration.", error.message)
     }
 
     @Test
