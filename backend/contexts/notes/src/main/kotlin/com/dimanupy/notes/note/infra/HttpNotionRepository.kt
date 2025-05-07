@@ -13,6 +13,9 @@ import org.json.JSONObject
 
 class HttpNotionRepository(private val client: HttpHandler, private val connectionData: NotionConnectionData) : NotionRepository {
     override fun fetch(databaseId: NotionDatabaseId): List<Note> {
+        // TODO: Manage when response has pagination when there are more than 100 notes. In cases where the number of notes is greater
+        //  than 100, the response will contain a "has_more" field and a "next_cursor" field. The next_cursor field should be used
+        //  to fetch the next page of results. The has_more field indicates whether there are more pages of results to fetch.
         val request = buildRequestFor(databaseId)
 
         val rawResponse = client(request)
