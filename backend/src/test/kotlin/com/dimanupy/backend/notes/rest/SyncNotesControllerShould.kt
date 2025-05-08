@@ -24,7 +24,7 @@ class SyncNotesControllerShould {
     }
 
     @Test
-    fun `should get current notes from valid Notion database`() {
+    fun `get current notes from valid Notion database`() {
         givenAValidNotionDatabaseId()
 
         whenIFetchDatabaseNotesFromNotion()
