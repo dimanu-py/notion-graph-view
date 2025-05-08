@@ -32,6 +32,15 @@ class SyncNotesControllerShould {
         thenStatusCodeIsOk()
     }
 
+    @Test
+    fun `report error when Notion database has no integration`() {
+        givenANotionDatabaseIdWithNoIntegration()
+
+        whenIFetchDatabaseNotesFromNotion()
+
+        thenStatusCodeIs(400)
+    }
+
     private fun givenAValidNotionDatabaseId() {
         databaseId = System.getenv("TEST_DATABASE_ID")
     }
@@ -45,6 +54,16 @@ class SyncNotesControllerShould {
     private fun thenStatusCodeIsOk() {
         response.Then {
             statusCode(200)
+        }
+    }
+
+    private fun givenANotionDatabaseIdWithNoIntegration() {
+        databaseId = "e69a585c-50a1-4877-915a-60d5b6492701"
+    }
+
+    private fun thenStatusCodeIs(statusCode: Int) {
+        response.Then {
+            statusCode(statusCode)
         }
     }
 }
