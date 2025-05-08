@@ -16,6 +16,7 @@ class SyncNotesControllerShould {
     private val port: Int = 0
 
     private lateinit var databaseId: String
+    private lateinit var response: Response
 
     @BeforeEach
     fun setUp() {
@@ -26,20 +27,22 @@ class SyncNotesControllerShould {
     fun `should get current notes from valid Notion database`() {
         givenAValidNotionDatabaseId()
 
-        val response = whenIFetchDatabaseNotesFromNotion()
+        whenIFetchDatabaseNotesFromNotion()
 
-        thenStatusCodeIsOk(response)
+        thenStatusCodeIsOk()
     }
 
     private fun givenAValidNotionDatabaseId() {
         databaseId = System.getenv("TEST_DATABASE_ID")
     }
 
-    private fun whenIFetchDatabaseNotesFromNotion(): Response = When {
-        put("/notes/sync/$databaseId")
+    private fun whenIFetchDatabaseNotesFromNotion() {
+        response = When {
+            put("/notes/sync/$databaseId")
+        }
     }
 
-    private fun thenStatusCodeIsOk(response: Response) {
+    private fun thenStatusCodeIsOk() {
         response.Then {
             statusCode(200)
         }
