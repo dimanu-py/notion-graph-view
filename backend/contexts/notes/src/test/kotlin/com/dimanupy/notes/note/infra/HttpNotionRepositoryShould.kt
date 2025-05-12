@@ -31,10 +31,12 @@ class HttpNotionRepositoryShould {
         val databaseId = NotionDatabaseIdMother.fromTestEnvironment()
         val expectedNotes = listOf(
             NoteMother.create(
+                notionId = "15bf5bab5d4e807bbf58ca937660b2fb",
                 url = "https://www.notion.so/Note-test-integration-2-15bf5bab5d4e807bbf58ca937660b2fb",
                 title = "Note test integration 2",
             ),
             NoteMother.create(
+                notionId = "15bf5bab5d4e8064b9cedd66d2024fc6",
                 url = "https://www.notion.so/Note-test-integration-1-15bf5bab5d4e8064b9cedd66d2024fc6",
                 title = "Note test integration 1",
             ),
