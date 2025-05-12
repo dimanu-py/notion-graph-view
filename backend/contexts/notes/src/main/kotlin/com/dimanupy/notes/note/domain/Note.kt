@@ -5,7 +5,7 @@ data class Note(
     private val url: NoteUrl,
 ) {
     companion object {
-        fun fromPrimitives(title: String, url: String): Note = Note(
+        fun fromPrimitives(notionId: String, title: String, url: String): Note = Note(
             title = NoteTitle(title),
             url = NoteUrl(url),
         )

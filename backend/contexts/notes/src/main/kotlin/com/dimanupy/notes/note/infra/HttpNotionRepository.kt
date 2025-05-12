@@ -47,7 +47,7 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
             val properties = note.getJSONObject("properties")
             val title = properties.getJSONObject("Name").getJSONArray("title").getJSONObject(0).getString("plain_text")
 
-            notes.add(Note.fromPrimitives(title, url))
+            notes.add(Note.fromPrimitives("a", title, url))
         }
         return notes
     }

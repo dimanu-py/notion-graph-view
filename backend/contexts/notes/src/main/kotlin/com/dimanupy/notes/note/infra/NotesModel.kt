@@ -17,6 +17,7 @@ object NotesModel : Table("notes") {
     }
 
     fun toAggregate(note: ResultRow): Note = Note.fromPrimitives(
+        notionId = "",
         title = note[title],
         url = note[url],
     )
