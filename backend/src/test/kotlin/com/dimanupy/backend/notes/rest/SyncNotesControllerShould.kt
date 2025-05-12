@@ -4,6 +4,8 @@ import io.restassured.RestAssured
 import io.restassured.module.kotlin.extensions.Then
 import io.restassured.module.kotlin.extensions.When
 import io.restassured.response.Response
+import org.hamcrest.CoreMatchers.equalTo
+import org.hamcrest.CoreMatchers.notNullValue
 import org.junit.jupiter.api.BeforeEach
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.server.LocalServerPort
@@ -39,6 +41,11 @@ class SyncNotesControllerShould {
         whenIFetchDatabaseNotesFromNotion()
 
         thenStatusCodeIs(400)
+        thenResponseBodyContains(
+            "Bad Request",
+            "Database with id $databaseId is not shared with your integration.",
+            "/notes/sync/$databaseId"
+        )
     }
 
     private fun givenAValidNotionDatabaseId() {
@@ -58,6 +65,15 @@ class SyncNotesControllerShould {
     private fun thenStatusCodeIs(statusCode: Int) {
         response.Then {
             statusCode(statusCode)
+        }
+    }
+
+    private fun thenResponseBodyContains(error: String, message: String, path: String) {
+        response.Then {
+            body("occurredOn", notNullValue())
+            body("error", equalTo(error))
+            body("message", equalTo(message))
+            body("path", equalTo(path))
         }
     }
 }
