@@ -8,3 +8,4 @@ sealed class NoteError(
 class NoteUrlInvalidFormat : NoteError("Note URL must fulfill Notion URL format")
 class NoteUrlCannotBeEmpty : NoteError("Note URL cannot be empty")
 class NoteTitleCannotBeEmpty : NoteError("Note title cannot be empty")
+class NoteIdCannotBeEmpty : NoteError("Note id from Notion cannot be empty")
