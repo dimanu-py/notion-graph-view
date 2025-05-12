@@ -1,10 +1,12 @@
 package com.dimanupy.backend.notes.rest
 
+import com.dimanupy.backend.ApiErrorResponse
 import com.dimanupy.notes.note.domain.NoteError
 import com.dimanupy.notes.note.domain.NotionError
 import jakarta.servlet.http.HttpServletRequest
 import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
@@ -14,8 +16,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 class NotesErrorHandler {
 
     @ExceptionHandler(NoteError::class, NotionError::class)
-    fun handleDomainError(error: Exception, request: HttpServletRequest): ResponseEntity<String> =
-        ResponseEntity
-            .badRequest()
-            .body(error.message)
+    fun handleDomainError(error: Exception, request: HttpServletRequest): ResponseEntity<ApiErrorResponse> {
+        val status = HttpStatus.BAD_REQUEST
+        val body = ApiErrorResponse(
+            status = status.value(),
+            error = status.reasonPhrase,
+            message = error.message ?: "Bad request unknown error",
+            path = request.requestURI,
+        )
+        return ResponseEntity(body, status)
+    }
 }
