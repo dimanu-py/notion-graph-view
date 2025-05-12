@@ -1,10 +1,6 @@
 package com.dimanupy.notes.note.application
 
-import com.dimanupy.notes.note.domain.InvalidDatabaseIdFormat
-import com.dimanupy.notes.note.domain.NoteMother
-import com.dimanupy.notes.note.domain.NotesRepository
-import com.dimanupy.notes.note.domain.NotionDatabaseIdMother
-import com.dimanupy.notes.note.domain.NotionRepository
+import com.dimanupy.notes.note.domain.*
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -48,5 +44,16 @@ class NotesSyncerShould {
 
         assertEquals("Database id must have a valid UUID format: $databaseId", error.message)
         verify(exactly = 0) { notionRepository.fetch(any()) }
+    }
+
+    @Test
+    fun `not sync notes if notion note id has not valid length`() {
+        val idWithWrongLength = "2ca06a5b28d048859c299c02d"
+
+        val error = assertThrows<InvalidNotionNoteIdFormat> {
+            NoteMother.create(notionId = idWithWrongLength)
+        }
+
+        assertEquals("Notion note id $idWithWrongLength is not valid. Must have 32 characters.", error.message)
     }
 }
