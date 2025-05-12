@@ -29,7 +29,7 @@ class SyncNotesControllerShould {
 
         whenIFetchDatabaseNotesFromNotion()
 
-        thenStatusCodeIsOk()
+        thenStatusCodeIs(200)
     }
 
     @Test
@@ -48,12 +48,6 @@ class SyncNotesControllerShould {
     private fun whenIFetchDatabaseNotesFromNotion() {
         response = When {
             put("/notes/sync/$databaseId")
-        }
-    }
-
-    private fun thenStatusCodeIsOk() {
-        response.Then {
-            statusCode(200)
         }
     }
 
