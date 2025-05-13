@@ -2,10 +2,10 @@ package com.dimanupy.notes.note.domain
 
 import com.dimanupy.notes.shared.domain.RandomGenerator
 
-object NotionNoteIdMother {
+object NotionNoteIdPrimitivesMother {
 
-    fun create(value: String = RandomGenerator.uuid()): NotionNoteId {
+    fun create(value: String = RandomGenerator.uuid()): String {
         val formatedId = value.replace("-", "")
-        return NotionNoteId(formatedId)
+        return formatedId
     }
 }
