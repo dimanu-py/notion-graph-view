@@ -7,17 +7,19 @@ import org.jetbrains.exposed.sql.statements.BatchInsertStatement
 
 object NotesModel : Table("notes") {
     private val id = integer("id").autoIncrement()
+    val notionId = varchar("notion_id", 255)
     val title = varchar("title", 255)
     val url = varchar("url", 255)
     override val primaryKey = PrimaryKey(id)
 
     fun fromPrimitives(data: Map<String, String>, statement: BatchInsertStatement) {
+        statement[notionId] = data["notionId"]!!
         statement[title] = data["title"]!!
         statement[url] = data["url"]!!
     }
 
     fun toAggregate(note: ResultRow): Note = Note.fromPrimitives(
-        notionId = "",
+        notionId = note[notionId],
         title = note[title],
         url = note[url],
     )
