@@ -54,6 +54,6 @@ class NotesSyncerShould {
             NoteMother.create(notionId = idWithWrongLength)
         }
 
-        assertEquals("Notion note id $idWithWrongLength is not valid. Must have 32 characters.", error.message)
+        assertEquals("Notion note id must have a valid UUID format: $idWithWrongLength", error.message)
     }
 }
