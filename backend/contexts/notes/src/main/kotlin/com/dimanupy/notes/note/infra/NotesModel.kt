@@ -7,9 +7,9 @@ import org.jetbrains.exposed.sql.statements.BatchInsertStatement
 
 object NotesModel : Table("notes") {
     private val id = integer("id").autoIncrement()
-    val notionId = varchar("notion_id", 255)
-    val title = varchar("title", 255)
-    val url = varchar("url", 255)
+    private val notionId = varchar("notion_id", 255)
+    private val title = varchar("title", 255)
+    private val url = varchar("url", 255)
     override val primaryKey = PrimaryKey(id)
 
     fun fromPrimitives(data: Map<String, String>, statement: BatchInsertStatement) {
