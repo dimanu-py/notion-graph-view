@@ -28,7 +28,7 @@ class HttpNotionRepositoryShould {
 
     @Test
     fun `fetch notes from valid Notion database`() {
-        val databaseId = NotionDatabaseIdMother.fromTestEnvironment()
+        val databaseId = NotionDatabaseIdMother.create(System.getenv("TEST_DATABASE_ID"))
         val expectedNotes = listOf(
             NoteMother.create(
                 notionId = "15bf5bab5d4e807bbf58ca937660b2fb",

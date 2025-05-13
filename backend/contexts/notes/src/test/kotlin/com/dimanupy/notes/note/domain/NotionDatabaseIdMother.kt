@@ -6,5 +6,4 @@ object NotionDatabaseIdMother {
 
     fun create(value: String = RandomGenerator.uuid()): NotionDatabaseId = NotionDatabaseId(value)
 
-    fun fromTestEnvironment(): NotionDatabaseId = NotionDatabaseId(System.getenv("TEST_DATABASE_ID"))
 }
