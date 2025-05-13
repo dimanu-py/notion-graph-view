@@ -1,0 +1,15 @@
+services:
+
+  angular-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.init
+    ports:
+      - '4200:4200'
+    volumes:
+      - .:/app # Mount the current directory into /app
+      - node_modules:/app/node_modules # Use named volume for node_modules to persist between container instances
+    command: ng serve --host 0.0.0.0
+
+volumes:
+  node_modules: # Define named volume for node_modules
