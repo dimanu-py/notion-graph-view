@@ -44,7 +44,7 @@ class SyncNotesControllerShould {
         thenResponseBodyContains(
             "Bad Request",
             "Database with id $databaseId is not shared with your integration.",
-            "/notes/sync/$databaseId"
+            "/notes/sync/$databaseId",
         )
     }
 

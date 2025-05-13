@@ -3,8 +3,7 @@ package com.dimanupy.notes.note.domain
 import com.dimanupy.notes.shared.domain.ValueObject
 import java.util.UUID
 
-
-class NotionNoteId(private val _value: String): ValueObject<String>(_value) {
+class NotionNoteId(private val _value: String) : ValueObject<String>(_value) {
 
     override fun validate(value: String) {
         ensureIsNotEmpty(value)
@@ -24,5 +23,4 @@ class NotionNoteId(private val _value: String): ValueObject<String>(_value) {
             throw NoteIdCannotBeEmpty()
         }
     }
-
 }

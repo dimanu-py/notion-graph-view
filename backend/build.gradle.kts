@@ -53,9 +53,11 @@ allprojects {
 
     configure<com.diffplug.gradle.spotless.SpotlessExtension> {
         kotlin {
-            ktlint().editorConfigOverride(mapOf(
-                "insert_final_newline" to "true"
-            ))
+            ktlint().editorConfigOverride(
+                mapOf(
+                    "insert_final_newline" to "true",
+                ),
+            )
         }
         kotlinGradle {
             ktlint()

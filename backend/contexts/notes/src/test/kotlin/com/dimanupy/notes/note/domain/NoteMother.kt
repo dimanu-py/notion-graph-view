@@ -7,12 +7,10 @@ object NoteMother {
     fun create(
         notionId: String = NotionNoteIdPrimitivesMother.create(),
         url: String = NoteUrlPrimitivesMother.create(),
-        title: String = NoteTitlePrimitivesMother.create()
-    ): Note {
-        return Note.fromPrimitives(
-            notionId = notionId,
-            title = title,
-            url = url,
-        )
-    }
+        title: String = NoteTitlePrimitivesMother.create(),
+    ): Note = Note.fromPrimitives(
+        notionId = notionId,
+        title = title,
+        url = url,
+    )
 }
