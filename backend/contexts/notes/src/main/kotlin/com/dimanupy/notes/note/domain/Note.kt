@@ -15,9 +15,10 @@ data class Note private constructor(
         )
     }
 
-    fun toPrimitives(): Map<String, String> = mapOf(
+    fun toPrimitives(): Map<String, Any> = mapOf(
         "notionId" to notionNoteId.value,
         "title" to title.value,
         "url" to url.value,
+        "relatedNotes" to relatedNotes.value.map { it.value },
     )
 }
