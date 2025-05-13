@@ -42,12 +42,13 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
         for (i in 0 until results.length()) {
             val note = results.getJSONObject(i)
 
+            val id = note.getString("id")
             val url = note.getString("url")
 
             val properties = note.getJSONObject("properties")
             val title = properties.getJSONObject("Name").getJSONArray("title").getJSONObject(0).getString("plain_text")
 
-            notes.add(Note.fromPrimitives("a", title, url))
+            notes.add(Note.fromPrimitives(id, title, url))
         }
         return notes
     }
