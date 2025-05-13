@@ -1,6 +1,6 @@
 package com.dimanupy.notes.note.domain
 
-data class Note(
+data class Note private constructor(
     private val notionNoteId: NotionNoteId,
     private val title: NoteTitle,
     private val url: NoteUrl,
