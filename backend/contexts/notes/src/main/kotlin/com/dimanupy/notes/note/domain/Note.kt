@@ -7,7 +7,7 @@ data class Note private constructor(
     private val relatedNotes: NoteRelatedNotes,
 ) {
     companion object {
-        fun fromPrimitives(notionId: String, title: String, url: String, relatedNotes: List<String> = emptyList()): Note = Note(
+        fun fromPrimitives(notionId: String, title: String, url: String, relatedNotes: List<String>): Note = Note(
             notionNoteId = NotionNoteId(notionId),
             title = NoteTitle(title),
             url = NoteUrl(url),
