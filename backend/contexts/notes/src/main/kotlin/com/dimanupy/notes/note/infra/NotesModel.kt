@@ -21,12 +21,11 @@ object NotesModel : Table("notes") {
     )
     override val primaryKey = PrimaryKey(id)
 
-    fun fromPrimitives(data: Map<String, String>, statement: BatchInsertStatement) {
-        statement[notionId] = data["notionId"]!!
-        statement[title] = data["title"]!!
-        statement[url] = data["url"]!!
-        statement[relatedNotes] = Json
-            .decodeFromString(ListSerializer(String.serializer()), data.getValue("relatedNotes"))
+    fun fromPrimitives(data: Map<String, Any>, statement: BatchInsertStatement) {
+        statement[notionId] = data["notionId"] as String
+        statement[title] = data["title"] as String
+        statement[url] = data["url"] as String
+        statement[relatedNotes] = data.getValue("relatedNotes") as List<String>
     }
 
     fun toAggregate(note: ResultRow): Note = Note.fromPrimitives(
