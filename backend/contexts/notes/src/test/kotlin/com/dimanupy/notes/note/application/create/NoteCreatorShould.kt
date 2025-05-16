@@ -2,6 +2,7 @@ package com.dimanupy.notes.note.application.create
 
 import com.dimanupy.notes.note.domain.Note
 import com.dimanupy.notes.note.domain.NoteMother
+import com.dimanupy.notes.note.domain.NoteRelatedNotesPrimitivesMother
 import com.dimanupy.notes.note.domain.NoteUrlCannotBeEmpty
 import com.dimanupy.notes.note.domain.NoteTitleCannotBeEmpty
 import com.dimanupy.notes.note.domain.NoteTitlePrimitivesMother
@@ -34,6 +35,15 @@ class NoteCreatorShould {
         noteCreator(note)
 
         verify(exactly = 1) { notesRepository.save(match<Note> { it.toPrimitives() == note })}
+    }
+
+    @Test
+    fun `create a note with no relations`() {
+        val note = NoteMother.create(relatedNotes = NoteRelatedNotesPrimitivesMother.empty())
+
+        noteCreator(note)
+
+        verify(exactly = 1) { notesRepository.save(match<Note> { it.toPrimitives() == note }) }
     }
 
     @ParameterizedTest
