@@ -9,6 +9,7 @@ import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.json.jsonb
 import org.jetbrains.exposed.sql.statements.BatchInsertStatement
+import org.jetbrains.exposed.sql.statements.InsertStatement
 
 object NotesModel : Table("notes") {
     private val id = integer("id").autoIncrement()
@@ -23,6 +24,13 @@ object NotesModel : Table("notes") {
     override val primaryKey = PrimaryKey(id)
 
     fun fromPrimitives(data: NotePrimitives, statement: BatchInsertStatement) {
+        statement[notionId] = data.notionId
+        statement[title] = data.title
+        statement[url] = data.url
+        statement[relatedNotes] = data.relatedNotes
+    }
+
+    fun fromPrimitives(data: NotePrimitives, statement: InsertStatement<Number>) {
         statement[notionId] = data.notionId
         statement[title] = data.title
         statement[url] = data.url
