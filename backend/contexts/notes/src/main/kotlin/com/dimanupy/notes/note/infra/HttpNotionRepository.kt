@@ -2,6 +2,7 @@ package com.dimanupy.notes.note.infra
 
 import com.dimanupy.notes.note.domain.InvalidNotionDatabase
 import com.dimanupy.notes.note.domain.Note
+import com.dimanupy.notes.note.domain.NotePrimitives
 import com.dimanupy.notes.note.domain.NotionDatabaseId
 import com.dimanupy.notes.note.domain.NotionRepository
 import com.dimanupy.notes.note.domain.UnexpectedNotionException
@@ -51,7 +52,7 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
             val relatedNotes = (0 until rawRelatedNotes.length())
                 .map { rawRelatedNotes.getJSONObject(it).getString("id") }
 
-            notes.add(Note.fromPrimitives(id, title, url, relatedNotes))
+            notes.add(Note.fromPrimitives(NotePrimitives(id, title, url, relatedNotes)))
         }
         return notes
     }

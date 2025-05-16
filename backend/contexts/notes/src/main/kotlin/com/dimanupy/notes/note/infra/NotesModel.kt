@@ -30,9 +30,11 @@ object NotesModel : Table("notes") {
     }
 
     fun toAggregate(note: ResultRow): Note = Note.fromPrimitives(
-        notionId = note[notionId],
-        title = note[title],
-        url = note[url],
-        relatedNotes = note[relatedNotes],
+        NotePrimitives(
+            notionId = note[notionId],
+            title = note[title],
+            url = note[url],
+            relatedNotes = note[relatedNotes],
+        )
     )
 }

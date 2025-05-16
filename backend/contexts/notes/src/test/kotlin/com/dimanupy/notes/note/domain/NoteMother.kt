@@ -3,10 +3,12 @@ package com.dimanupy.notes.note.domain
 object NoteMother {
 
     fun any(): Note = Note.fromPrimitives(
+        NotePrimitives(
         notionId = NotionNoteIdPrimitivesMother.create(),
         title = NoteTitlePrimitivesMother.create(),
         url = NoteUrlPrimitivesMother.create(),
         relatedNotes = NoteRelatedNotesPrimitivesMother.create(),
+        )
     )
 
     fun create(
@@ -15,9 +17,11 @@ object NoteMother {
         title: String = NoteTitlePrimitivesMother.create(),
         relatedNotes: List<String> = NoteRelatedNotesPrimitivesMother.create(),
     ): Note = Note.fromPrimitives(
+        NotePrimitives(
         notionId = notionId,
         title = title,
         url = url,
         relatedNotes = relatedNotes,
+        )
     )
 }
