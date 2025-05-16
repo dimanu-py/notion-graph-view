@@ -11,7 +11,7 @@ class CreateNotesController {
 
     @PutMapping
     fun createNote(): ResponseEntity<String> {
-        throw NotImplementedError()
+        return ResponseEntity.ok().build()
     }
 
 }
