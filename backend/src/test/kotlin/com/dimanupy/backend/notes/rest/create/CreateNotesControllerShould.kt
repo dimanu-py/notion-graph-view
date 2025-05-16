@@ -39,7 +39,7 @@ class CreateNotesControllerShould {
             contentType(ContentType.JSON)
             body(requestBody)
         } When {
-            put("/notes")
+            post("/notes")
         }
     }
 
