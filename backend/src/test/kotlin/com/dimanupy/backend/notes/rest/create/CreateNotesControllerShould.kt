@@ -27,7 +27,7 @@ class CreateNotesControllerShould {
 
     @Test
     fun `save valid note`() {
-        givenAValidNote()
+        givenAValidNoteRequest()
 
         whenICreateANote()
 
@@ -49,7 +49,7 @@ class CreateNotesControllerShould {
         }
     }
 
-    private fun givenAValidNote() {
+    private fun givenAValidNoteRequest() {
         requestBody = """
             {
                 "id": "feb562ba-434a-45a0-93e0-4a233e31989c",
