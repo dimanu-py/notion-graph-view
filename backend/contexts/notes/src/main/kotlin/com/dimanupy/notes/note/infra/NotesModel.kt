@@ -1,6 +1,7 @@
 package com.dimanupy.notes.note.infra
 
 import com.dimanupy.notes.note.domain.Note
+import com.dimanupy.notes.note.domain.NotePrimitives
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json
@@ -21,11 +22,11 @@ object NotesModel : Table("notes") {
     )
     override val primaryKey = PrimaryKey(id)
 
-    fun fromPrimitives(data: Map<String, Any>, statement: BatchInsertStatement) {
-        statement[notionId] = data["notionId"] as String
-        statement[title] = data["title"] as String
-        statement[url] = data["url"] as String
-        statement[relatedNotes] = data.getValue("relatedNotes") as List<String>
+    fun fromPrimitives(data: NotePrimitives, statement: BatchInsertStatement) {
+        statement[notionId] = data.notionId
+        statement[title] = data.title
+        statement[url] = data.url
+        statement[relatedNotes] = data.relatedNotes
     }
 
     fun toAggregate(note: ResultRow): Note = Note.fromPrimitives(
