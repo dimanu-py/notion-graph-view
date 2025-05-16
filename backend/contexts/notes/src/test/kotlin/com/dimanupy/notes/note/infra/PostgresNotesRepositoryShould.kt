@@ -16,7 +16,7 @@ import kotlin.test.assertEquals
 
 @Testcontainers
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class PostgresNotionRepositoryShould {
+class PostgresNotesRepositoryShould {
 
     private lateinit var postgresRepository: PostgresNotesRepository
 
