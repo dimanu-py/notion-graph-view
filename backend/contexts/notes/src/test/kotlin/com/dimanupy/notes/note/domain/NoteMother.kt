@@ -2,15 +2,6 @@ package com.dimanupy.notes.note.domain
 
 object NoteMother {
 
-    fun any(): Note = Note.fromPrimitives(
-        NotePrimitives(
-        notionId = NotionNoteIdPrimitivesMother.create(),
-        title = NoteTitlePrimitivesMother.create(),
-        url = NoteUrlPrimitivesMother.create(),
-        relatedNotes = NoteRelatedNotesPrimitivesMother.create(),
-        )
-    )
-
     fun anyPrimitives(): NotePrimitives = NotePrimitives(
         notionId = NotionNoteIdPrimitivesMother.create(),
         title = NoteTitlePrimitivesMother.create(),
