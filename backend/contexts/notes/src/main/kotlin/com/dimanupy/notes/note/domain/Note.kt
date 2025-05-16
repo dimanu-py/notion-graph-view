@@ -1,5 +1,12 @@
 package com.dimanupy.notes.note.domain
 
+data class NotePrimitives(
+    val notionId: String,
+    val title: String,
+    val url: String,
+    val relatedNotes: List<String>
+)
+
 data class Note private constructor(
     private val notionNoteId: NotionNoteId,
     private val title: NoteTitle,
