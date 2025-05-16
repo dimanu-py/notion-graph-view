@@ -1,6 +1,6 @@
-package com.dimanupy.backend.notes.rest
+package com.dimanupy.backend.notes.rest.sync
 
-import com.dimanupy.notes.note.application.NotesSyncer
+import com.dimanupy.notes.note.application.sync.NotesSyncer
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PutMapping

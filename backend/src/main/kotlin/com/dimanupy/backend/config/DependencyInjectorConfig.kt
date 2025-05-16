@@ -1,6 +1,6 @@
 package com.dimanupy.backend.config
 
-import com.dimanupy.notes.note.application.NotesSyncer
+import com.dimanupy.notes.note.application.sync.NotesSyncer
 import com.dimanupy.notes.note.domain.NotesRepository
 import com.dimanupy.notes.note.domain.NotionRepository
 import com.dimanupy.notes.note.infra.PostgresNotesRepository

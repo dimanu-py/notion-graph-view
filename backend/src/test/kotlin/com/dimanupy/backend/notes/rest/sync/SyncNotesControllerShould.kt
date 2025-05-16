@@ -1,11 +1,10 @@
-package com.dimanupy.backend.notes.rest
+package com.dimanupy.backend.notes.rest.sync
 
 import io.restassured.RestAssured
 import io.restassured.module.kotlin.extensions.Then
 import io.restassured.module.kotlin.extensions.When
 import io.restassured.response.Response
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.CoreMatchers.notNullValue
+import org.hamcrest.CoreMatchers
 import org.junit.jupiter.api.BeforeEach
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.server.LocalServerPort
@@ -70,10 +69,10 @@ class SyncNotesControllerShould {
 
     private fun thenResponseBodyContains(error: String, message: String, path: String) {
         response.Then {
-            body("occurredOn", notNullValue())
-            body("error", equalTo(error))
-            body("message", equalTo(message))
-            body("path", equalTo(path))
+            body("occurredOn", CoreMatchers.notNullValue())
+            body("error", CoreMatchers.equalTo(error))
+            body("message", CoreMatchers.equalTo(message))
+            body("path", CoreMatchers.equalTo(path))
         }
     }
 }

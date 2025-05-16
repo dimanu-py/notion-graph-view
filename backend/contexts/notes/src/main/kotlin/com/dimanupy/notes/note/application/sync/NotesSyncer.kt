@@ -1,4 +1,4 @@
-package com.dimanupy.notes.note.application
+package com.dimanupy.notes.note.application.sync
 
 import com.dimanupy.notes.note.domain.NotesRepository
 import com.dimanupy.notes.note.domain.NotionDatabaseId
