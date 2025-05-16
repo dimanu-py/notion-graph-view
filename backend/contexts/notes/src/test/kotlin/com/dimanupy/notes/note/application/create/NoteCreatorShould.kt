@@ -24,7 +24,6 @@ class NoteCreatorShould {
 
         noteCreator(note)
 
-        val expectedSavedNote = Note.fromPrimitives(note)
-        verify { notesRepository.save(expectedSavedNote) }
+        verify(exactly = 1) { notesRepository.save(match<Note> { it.toPrimitives() == note })}
     }
 }
