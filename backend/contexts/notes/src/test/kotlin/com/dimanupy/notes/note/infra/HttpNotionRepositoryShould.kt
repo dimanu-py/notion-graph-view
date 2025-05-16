@@ -1,6 +1,7 @@
 package com.dimanupy.notes.note.infra
 
 import com.dimanupy.notes.note.domain.InvalidNotionDatabase
+import com.dimanupy.notes.note.domain.Note
 import com.dimanupy.notes.note.domain.NoteMother
 import com.dimanupy.notes.note.domain.NotionDatabaseIdMother
 import com.dimanupy.notes.note.domain.UnexpectedNotionException
@@ -29,7 +30,7 @@ class HttpNotionRepositoryShould {
     @Test
     fun `fetch notes from valid Notion database`() {
         val databaseId = NotionDatabaseIdMother.create(System.getenv("TEST_DATABASE_ID"))
-        val expectedNotes = listOf(
+        val notesPrimitives = listOf(
             NoteMother.create(
                 notionId = "15bf5bab-5d4e-807b-bf58-ca937660b2fb",
                 url = "https://www.notion.so/Note-test-integration-2-15bf5bab5d4e807bbf58ca937660b2fb",
@@ -43,6 +44,7 @@ class HttpNotionRepositoryShould {
                 relatedNotes = listOf("15bf5bab-5d4e-807b-bf58-ca937660b2fb"),
             ),
         )
+        val expectedNotes = notesPrimitives.map { Note.fromPrimitives(it) }
 
         val notes = httpNotionRepository.fetch(databaseId)
 

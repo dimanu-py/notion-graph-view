@@ -52,9 +52,10 @@ class NotesSyncerShould {
     @Test
     fun `not sync notes if notion note id has not valid length`() {
         val idWithWrongLength = "2ca06a5b28d048859c299c02d"
+        val invalidNotePrimitives = NoteMother.create(notionId = idWithWrongLength)
 
         val error = assertThrows<InvalidNotionNoteIdFormat> {
-            NoteMother.create(notionId = idWithWrongLength)
+            Note.fromPrimitives(invalidNotePrimitives)
         }
 
         assertEquals("Notion note id must have a valid UUID format: $idWithWrongLength", error.message)
