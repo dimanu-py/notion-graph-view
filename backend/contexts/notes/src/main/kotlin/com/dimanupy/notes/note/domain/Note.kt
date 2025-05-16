@@ -14,11 +14,11 @@ data class Note private constructor(
     private val relatedNotes: NoteRelatedNotes,
 ) {
     companion object {
-        fun fromPrimitives(notionId: String, title: String, url: String, relatedNotes: List<String>): Note = Note(
-            notionNoteId = NotionNoteId(notionId),
-            title = NoteTitle(title),
-            url = NoteUrl(url),
-            relatedNotes = NoteRelatedNotes.create(relatedNotes),
+        fun fromPrimitives(primitives: NotePrimitives): Note = Note(
+            notionNoteId = NotionNoteId(primitives.notionId),
+            title = NoteTitle(primitives.title),
+            url = NoteUrl(primitives.url),
+            relatedNotes = NoteRelatedNotes.create(primitives.relatedNotes),
         )
     }
 
