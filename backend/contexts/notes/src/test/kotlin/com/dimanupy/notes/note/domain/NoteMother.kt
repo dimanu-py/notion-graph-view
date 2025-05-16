@@ -14,12 +14,10 @@ object NoteMother {
         url: String = NoteUrlPrimitivesMother.create(),
         title: String = NoteTitlePrimitivesMother.create(),
         relatedNotes: List<String> = NoteRelatedNotesPrimitivesMother.create(),
-    ): Note = Note.fromPrimitives(
-        NotePrimitives(
+    ): NotePrimitives = NotePrimitives(
         notionId = notionId,
         title = title,
         url = url,
         relatedNotes = relatedNotes,
-        )
     )
 }
