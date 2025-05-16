@@ -65,4 +65,16 @@ class PostgresNotesRepositoryShould {
         assert(savedNotes.isNotEmpty())
         assertEquals(savedNotes, notes)
     }
+
+    @Test
+    fun `should save note`() {
+        val note = Note.fromPrimitives(NoteMother.create())
+
+        postgresRepository.save(note)
+
+        val savedNotes = postgresRepository.findAll()
+        assert(savedNotes.isNotEmpty())
+        assertEquals(savedNotes.first(), note)
+    }
+
 }
