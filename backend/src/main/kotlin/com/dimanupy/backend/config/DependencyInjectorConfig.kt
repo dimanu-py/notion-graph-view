@@ -1,5 +1,6 @@
 package com.dimanupy.backend.config
 
+import com.dimanupy.notes.note.application.create.NoteCreator
 import com.dimanupy.notes.note.application.sync.NotesSyncer
 import com.dimanupy.notes.note.domain.NotesRepository
 import com.dimanupy.notes.note.domain.NotionRepository
@@ -14,4 +15,7 @@ class DependencyInjectorConfig {
 
     @Bean
     fun notesSyncer(notionRepository: NotionRepository, notesRepository: NotesRepository): NotesSyncer = NotesSyncer(notionRepository, notesRepository)
+
+    @Bean
+    fun notesCreator(notesRepository: NotesRepository): NoteCreator = NoteCreator(notesRepository)
 }
