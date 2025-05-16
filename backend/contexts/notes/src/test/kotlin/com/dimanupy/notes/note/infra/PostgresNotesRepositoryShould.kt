@@ -1,5 +1,6 @@
 package com.dimanupy.notes.note.infra
 
+import com.dimanupy.notes.note.domain.Note
 import com.dimanupy.notes.note.domain.NoteMother
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -52,7 +53,11 @@ class PostgresNotesRepositoryShould {
 
     @Test
     fun `should save Notion notes`() {
-        val notes = listOf(NoteMother.any(), NoteMother.any(), NoteMother.any())
+        val notes = listOf(
+            Note.fromPrimitives(NoteMother.anyPrimitives()),
+            Note.fromPrimitives(NoteMother.anyPrimitives()),
+            Note.fromPrimitives(NoteMother.anyPrimitives()),
+        )
 
         postgresRepository.save(notes)
 
