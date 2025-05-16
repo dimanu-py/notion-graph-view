@@ -54,9 +54,9 @@ class PostgresNotesRepositoryShould {
     @Test
     fun `should save Notion notes`() {
         val notes = listOf(
-            Note.fromPrimitives(NoteMother.anyPrimitives()),
-            Note.fromPrimitives(NoteMother.anyPrimitives()),
-            Note.fromPrimitives(NoteMother.anyPrimitives()),
+            Note.fromPrimitives(NoteMother.any()),
+            Note.fromPrimitives(NoteMother.any()),
+            Note.fromPrimitives(NoteMother.any()),
         )
 
         postgresRepository.save(notes)
