@@ -15,6 +15,10 @@ class PostgresNotesRepository : NotesRepository {
         }
     }
 
+    override fun save(note: Note) {
+        throw NotImplementedError()
+    }
+
     override fun findAll(): List<Note> = transaction {
         NotesModel.selectAll().map { note ->
             NotesModel.toAggregate(note)
