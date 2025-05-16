@@ -34,13 +34,13 @@ class HttpNotionRepositoryShould {
                 notionId = "15bf5bab-5d4e-807b-bf58-ca937660b2fb",
                 url = "https://www.notion.so/Note-test-integration-2-15bf5bab5d4e807bbf58ca937660b2fb",
                 title = "Note test integration 2",
-                relatedNotes = listOf("15bf5bab-5d4e-8064-b9ce-dd66d2024fc6")
+                relatedNotes = listOf("15bf5bab-5d4e-8064-b9ce-dd66d2024fc6"),
             ),
             NoteMother.create(
                 notionId = "15bf5bab-5d4e-8064-b9ce-dd66d2024fc6",
                 url = "https://www.notion.so/Note-test-integration-1-15bf5bab5d4e8064b9cedd66d2024fc6",
                 title = "Note test integration 1",
-                relatedNotes = listOf("15bf5bab-5d4e-807b-bf58-ca937660b2fb")
+                relatedNotes = listOf("15bf5bab-5d4e-807b-bf58-ca937660b2fb"),
             ),
         )
 

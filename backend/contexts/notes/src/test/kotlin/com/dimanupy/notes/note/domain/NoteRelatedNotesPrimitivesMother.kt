@@ -4,7 +4,5 @@ import com.dimanupy.notes.shared.domain.RandomGenerator
 
 object NoteRelatedNotesPrimitivesMother {
 
-    fun create(amount: Int = 3): List<String> {
-        return List(amount) { RandomGenerator.uuid() }
-    }
+    fun create(amount: Int = 3): List<String> = List(amount) { RandomGenerator.uuid() }
 }

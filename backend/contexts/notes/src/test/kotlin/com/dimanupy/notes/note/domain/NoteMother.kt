@@ -6,7 +6,7 @@ object NoteMother {
         notionId = NotionNoteIdPrimitivesMother.create(),
         title = NoteTitlePrimitivesMother.create(),
         url = NoteUrlPrimitivesMother.create(),
-        relatedNotes = NoteRelatedNotesPrimitivesMother.create()
+        relatedNotes = NoteRelatedNotesPrimitivesMother.create(),
     )
 
     fun create(

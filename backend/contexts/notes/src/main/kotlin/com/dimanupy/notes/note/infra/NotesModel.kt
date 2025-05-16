@@ -17,7 +17,7 @@ object NotesModel : Table("notes") {
     private val relatedNotes = jsonb(
         name = "related_notes",
         jsonConfig = Json { encodeDefaults = true },
-        kSerializer = ListSerializer(String.serializer())
+        kSerializer = ListSerializer(String.serializer()),
     )
     override val primaryKey = PrimaryKey(id)
 
@@ -32,6 +32,6 @@ object NotesModel : Table("notes") {
         notionId = note[notionId],
         title = note[title],
         url = note[url],
-        relatedNotes = note[relatedNotes]
+        relatedNotes = note[relatedNotes],
     )
 }
