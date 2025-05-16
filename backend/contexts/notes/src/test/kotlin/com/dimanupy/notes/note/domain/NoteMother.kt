@@ -11,6 +11,13 @@ object NoteMother {
         )
     )
 
+    fun anyPrimitives(): NotePrimitives = NotePrimitives(
+        notionId = NotionNoteIdPrimitivesMother.create(),
+        title = NoteTitlePrimitivesMother.create(),
+        url = NoteUrlPrimitivesMother.create(),
+        relatedNotes = NoteRelatedNotesPrimitivesMother.create(),
+    )
+
     fun create(
         notionId: String = NotionNoteIdPrimitivesMother.create(),
         url: String = NoteUrlPrimitivesMother.create(),
