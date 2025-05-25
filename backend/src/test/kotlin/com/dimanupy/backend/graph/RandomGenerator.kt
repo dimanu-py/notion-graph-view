@@ -1,5 +1,6 @@
 package com.dimanupy.backend.graph
 
+import com.github.javafaker.Faker
 import java.util.UUID
 
 object RandomGenerator {

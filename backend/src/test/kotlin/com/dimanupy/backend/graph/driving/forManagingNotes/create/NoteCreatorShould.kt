@@ -1,13 +1,7 @@
 package com.dimanupy.backend.graph.driving.forManagingNotes.create
 
-import com.dimanupy.backend.graph.Note
-import com.dimanupy.notes.note.domain.NoteMother
-import com.dimanupy.notes.note.domain.NoteRelatedNotesPrimitivesMother
-import com.dimanupy.backend.graph.NoteUrlCannotBeEmpty
-import com.dimanupy.backend.graph.NoteTitleCannotBeEmpty
-import com.dimanupy.notes.note.domain.NoteTitlePrimitivesMother
-import com.dimanupy.notes.note.domain.NoteUrlPrimitivesMother
-import com.dimanupy.notes.note.domain.NotesRepository
+import com.dimanupy.backend.graph.*
+import com.dimanupy.backend.graph.driven.forStoringNotes.NotesRepository
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
@@ -15,8 +9,8 @@ import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
-import kotlin.test.Test
 import java.util.stream.Stream
+import kotlin.test.Test
 
 class NoteCreatorShould {
     private lateinit var noteCreator: NoteCreator
