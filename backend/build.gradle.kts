@@ -82,10 +82,7 @@ subprojects {
     }
 
     dependencies {
-        implementation("org.springframework:spring-jdbc")
-        implementation("org.springframework:spring-web")
 
-        testImplementation("io.mockk:mockk:1.14.0")
     }
 }
 
@@ -96,20 +93,27 @@ configurations {
 }
 
 dependencies {
-    implementation(project(":contexts:notes"))
-
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework:spring-context")
+    implementation("org.springframework:spring-jdbc")
+    implementation("org.springframework:spring-web")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.http4k:http4k-core:5.12.0.0")
+    implementation("org.json:json:20250107")
+
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.rest-assured:rest-assured")
     testImplementation("io.rest-assured:kotlin-extensions")
+    testImplementation("io.mockk:mockk:1.14.0")
+    testImplementation("com.github.javafaker:javafaker:1.0.2") {
+        exclude(group = "org.yaml", module = "snakeyaml")
+    }
+    testImplementation("org.yaml:snakeyaml:2.3")
 }
 
 kotlin {
