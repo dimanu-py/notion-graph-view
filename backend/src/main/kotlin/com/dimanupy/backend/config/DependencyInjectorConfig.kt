@@ -1,7 +1,7 @@
 package com.dimanupy.backend.config
 
-import com.dimanupy.notes.note.application.create.NoteCreator
-import com.dimanupy.notes.note.application.sync.NotesSyncer
+import com.dimanupy.backend.graph.driving.forManagingNotes.create.NoteCreator
+import com.dimanupy.backend.graph.driving.forManagingNotes.sync.NotesSyncer
 import com.dimanupy.backend.graph.driven.forStoringNotes.NotesRepository
 import com.dimanupy.backend.graph.driven.forStoringNotes.NotionRepository
 import com.dimanupy.backend.driven.forStoringNotes.PostgresNotesRepository

@@ -1,4 +1,4 @@
-package com.dimanupy.notes.note.application.create
+package com.dimanupy.backend.graph.driving.forManagingNotes.create
 
 import com.dimanupy.notes.note.domain.Note
 import com.dimanupy.notes.note.domain.NoteMother

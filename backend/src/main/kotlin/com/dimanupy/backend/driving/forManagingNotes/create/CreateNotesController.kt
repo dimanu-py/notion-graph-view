@@ -1,6 +1,6 @@
 package com.dimanupy.backend.driving.forManagingNotes.create
 
-import com.dimanupy.notes.note.application.create.NoteCreator
+import com.dimanupy.backend.graph.driving.forManagingNotes.create.NoteCreator
 import com.dimanupy.notes.note.domain.NotePrimitives
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping

@@ -1,6 +1,6 @@
 package com.dimanupy.backend.driving.forManagingNotes.sync
 
-import com.dimanupy.notes.note.application.sync.NotesSyncer
+import com.dimanupy.backend.graph.driving.forManagingNotes.sync.NotesSyncer
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PutMapping

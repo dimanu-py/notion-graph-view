@@ -1,4 +1,4 @@
-package com.dimanupy.notes.note.application.sync
+package com.dimanupy.backend.graph.driving.forManagingNotes.sync
 
 import com.dimanupy.notes.note.domain.*
 import io.mockk.every
