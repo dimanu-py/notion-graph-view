@@ -1,7 +1,7 @@
 package com.dimanupy.backend.driven.forStoringNotes
 
-import com.dimanupy.notes.note.domain.Note
-import com.dimanupy.notes.note.domain.NotePrimitives
+import com.dimanupy.backend.graph.Note
+import com.dimanupy.backend.graph.NotePrimitives
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json

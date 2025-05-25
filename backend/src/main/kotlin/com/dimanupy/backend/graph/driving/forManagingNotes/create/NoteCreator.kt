@@ -1,7 +1,7 @@
 package com.dimanupy.backend.graph.driving.forManagingNotes.create
 
-import com.dimanupy.notes.note.domain.Note
-import com.dimanupy.notes.note.domain.NotePrimitives
+import com.dimanupy.backend.graph.Note
+import com.dimanupy.backend.graph.NotePrimitives
 import com.dimanupy.notes.note.domain.NotesRepository
 
 class NoteCreator(private val repository: NotesRepository) {

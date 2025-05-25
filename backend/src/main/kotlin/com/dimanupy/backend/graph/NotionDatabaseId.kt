@@ -1,6 +1,6 @@
-package com.dimanupy.notes.note.domain
+package com.dimanupy.backend.graph
 
-import com.dimanupy.notes.shared.domain.ValueObject
+import com.dimanupy.backend.graph.ValueObject
 import java.util.UUID
 
 class NotionDatabaseId(private val _value: String) : ValueObject<String>(_value) {

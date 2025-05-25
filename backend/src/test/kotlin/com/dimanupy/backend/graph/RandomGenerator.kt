@@ -1,7 +1,6 @@
-package com.dimanupy.notes.shared.domain
+package com.dimanupy.backend.graph
 
-import com.github.javafaker.Faker
-import java.util.*
+import java.util.UUID
 
 object RandomGenerator {
     private val faker = Faker()

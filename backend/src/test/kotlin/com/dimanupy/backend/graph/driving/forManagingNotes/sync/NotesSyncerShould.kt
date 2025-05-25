@@ -1,5 +1,8 @@
 package com.dimanupy.backend.graph.driving.forManagingNotes.sync
 
+import com.dimanupy.backend.graph.InvalidDatabaseIdFormat
+import com.dimanupy.backend.graph.InvalidNotionNoteIdFormat
+import com.dimanupy.backend.graph.Note
 import com.dimanupy.notes.note.domain.*
 import io.mockk.every
 import io.mockk.mockk

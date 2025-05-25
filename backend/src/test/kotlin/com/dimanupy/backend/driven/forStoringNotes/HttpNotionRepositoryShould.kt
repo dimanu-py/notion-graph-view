@@ -1,10 +1,10 @@
 package com.dimanupy.backend.driven.forStoringNotes
 
-import com.dimanupy.notes.note.domain.InvalidNotionDatabase
-import com.dimanupy.notes.note.domain.Note
+import com.dimanupy.backend.graph.InvalidNotionDatabase
+import com.dimanupy.backend.graph.Note
 import com.dimanupy.notes.note.domain.NoteMother
 import com.dimanupy.notes.note.domain.NotionDatabaseIdMother
-import com.dimanupy.notes.note.domain.UnexpectedNotionException
+import com.dimanupy.backend.graph.UnexpectedNotionException
 import io.mockk.every
 import io.mockk.mockk
 import org.http4k.client.JavaHttpClient

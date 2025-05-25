@@ -1,10 +1,10 @@
 package com.dimanupy.backend.graph.driving.forManagingNotes.create
 
-import com.dimanupy.notes.note.domain.Note
+import com.dimanupy.backend.graph.Note
 import com.dimanupy.notes.note.domain.NoteMother
 import com.dimanupy.notes.note.domain.NoteRelatedNotesPrimitivesMother
-import com.dimanupy.notes.note.domain.NoteUrlCannotBeEmpty
-import com.dimanupy.notes.note.domain.NoteTitleCannotBeEmpty
+import com.dimanupy.backend.graph.NoteUrlCannotBeEmpty
+import com.dimanupy.backend.graph.NoteTitleCannotBeEmpty
 import com.dimanupy.notes.note.domain.NoteTitlePrimitivesMother
 import com.dimanupy.notes.note.domain.NoteUrlPrimitivesMother
 import com.dimanupy.notes.note.domain.NotesRepository

@@ -1,11 +1,11 @@
 package com.dimanupy.backend.driven.forStoringNotes
 
-import com.dimanupy.notes.note.domain.InvalidNotionDatabase
-import com.dimanupy.notes.note.domain.Note
-import com.dimanupy.notes.note.domain.NotePrimitives
-import com.dimanupy.notes.note.domain.NotionDatabaseId
+import com.dimanupy.backend.graph.InvalidNotionDatabase
+import com.dimanupy.backend.graph.Note
+import com.dimanupy.backend.graph.NotePrimitives
+import com.dimanupy.backend.graph.NotionDatabaseId
 import com.dimanupy.backend.graph.driven.forStoringNotes.NotionRepository
-import com.dimanupy.notes.note.domain.UnexpectedNotionException
+import com.dimanupy.backend.graph.UnexpectedNotionException
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request

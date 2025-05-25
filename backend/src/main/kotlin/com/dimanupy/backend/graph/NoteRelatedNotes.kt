@@ -1,6 +1,6 @@
-package com.dimanupy.notes.note.domain
+package com.dimanupy.backend.graph
 
-import com.dimanupy.notes.shared.domain.ValueObject
+import com.dimanupy.backend.graph.ValueObject
 
 class NoteRelatedNotes private constructor(private val _value: List<NotionNoteId>) : ValueObject<List<NotionNoteId>>(_value) {
     companion object {

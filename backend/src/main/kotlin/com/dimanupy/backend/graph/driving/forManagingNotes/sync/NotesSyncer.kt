@@ -1,7 +1,7 @@
 package com.dimanupy.backend.graph.driving.forManagingNotes.sync
 
 import com.dimanupy.notes.note.domain.NotesRepository
-import com.dimanupy.notes.note.domain.NotionDatabaseId
+import com.dimanupy.backend.graph.NotionDatabaseId
 import com.dimanupy.notes.note.domain.NotionRepository
 
 class NotesSyncer(private val notionRepository: NotionRepository, private val notesRepository: NotesRepository) {

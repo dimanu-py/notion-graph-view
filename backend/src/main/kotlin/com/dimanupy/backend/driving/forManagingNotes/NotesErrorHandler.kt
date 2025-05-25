@@ -1,7 +1,7 @@
 package com.dimanupy.backend.driving.forManagingNotes
 
-import com.dimanupy.notes.note.domain.NoteError
-import com.dimanupy.notes.note.domain.NotionError
+import com.dimanupy.backend.graph.NoteError
+import com.dimanupy.backend.graph.NotionError
 import jakarta.servlet.http.HttpServletRequest
 import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order

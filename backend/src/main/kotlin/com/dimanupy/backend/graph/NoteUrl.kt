@@ -1,6 +1,6 @@
-package com.dimanupy.notes.note.domain
+package com.dimanupy.backend.graph
 
-import com.dimanupy.notes.shared.domain.ValueObject
+import com.dimanupy.backend.graph.ValueObject
 
 class NoteUrl(private val _value: String) : ValueObject<String>(_value) {
     companion object {

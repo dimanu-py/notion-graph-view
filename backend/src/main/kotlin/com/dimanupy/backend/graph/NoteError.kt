@@ -1,4 +1,4 @@
-package com.dimanupy.notes.note.domain
+package com.dimanupy.backend.graph
 
 sealed class NoteError(
     override val message: String,

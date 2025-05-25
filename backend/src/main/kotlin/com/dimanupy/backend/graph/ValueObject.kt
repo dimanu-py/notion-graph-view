@@ -1,4 +1,4 @@
-package com.dimanupy.notes.shared.domain
+package com.dimanupy.backend.graph
 
 abstract class ValueObject<T>(private val _value: T) {
     init {
