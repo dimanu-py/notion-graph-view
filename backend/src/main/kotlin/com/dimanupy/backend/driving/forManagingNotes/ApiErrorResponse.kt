@@ -1,4 +1,4 @@
-package com.dimanupy.backend
+package com.dimanupy.backend.driving.forManagingNotes
 
 import java.time.Instant
 

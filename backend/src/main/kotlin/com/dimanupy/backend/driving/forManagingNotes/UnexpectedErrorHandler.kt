@@ -1,4 +1,4 @@
-package com.dimanupy.backend
+package com.dimanupy.backend.driving.forManagingNotes
 
 import jakarta.servlet.http.HttpServletRequest
 import org.springframework.core.Ordered

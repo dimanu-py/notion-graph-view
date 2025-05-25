@@ -1,4 +1,4 @@
-package com.dimanupy.backend.notes.rest.sync
+package com.dimanupy.backend.driving.forManagingNotes.sync
 
 import com.dimanupy.notes.note.application.sync.NotesSyncer
 import org.springframework.http.ResponseEntity

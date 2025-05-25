@@ -1,4 +1,4 @@
-package com.dimanupy.backend.notes.rest.create
+package com.dimanupy.backend.driving.forManagingNotes.create
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

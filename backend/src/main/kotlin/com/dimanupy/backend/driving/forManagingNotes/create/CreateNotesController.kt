@@ -1,4 +1,4 @@
-package com.dimanupy.backend.notes.rest.create
+package com.dimanupy.backend.driving.forManagingNotes.create
 
 import com.dimanupy.notes.note.application.create.NoteCreator
 import com.dimanupy.notes.note.domain.NotePrimitives

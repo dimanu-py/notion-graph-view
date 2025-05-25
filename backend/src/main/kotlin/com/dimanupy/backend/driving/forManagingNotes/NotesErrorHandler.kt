@@ -1,6 +1,5 @@
-package com.dimanupy.backend.notes.rest
+package com.dimanupy.backend.driving.forManagingNotes
 
-import com.dimanupy.backend.ApiErrorResponse
 import com.dimanupy.notes.note.domain.NoteError
 import com.dimanupy.notes.note.domain.NotionError
 import jakarta.servlet.http.HttpServletRequest
