@@ -2,9 +2,9 @@ package com.dimanupy.backend.config
 
 import com.dimanupy.notes.note.application.create.NoteCreator
 import com.dimanupy.notes.note.application.sync.NotesSyncer
-import com.dimanupy.notes.note.domain.NotesRepository
-import com.dimanupy.notes.note.domain.NotionRepository
-import com.dimanupy.notes.note.infra.PostgresNotesRepository
+import com.dimanupy.backend.graph.driven.forStoringNotes.NotesRepository
+import com.dimanupy.backend.graph.driven.forStoringNotes.NotionRepository
+import com.dimanupy.backend.driven.forStoringNotes.PostgresNotesRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

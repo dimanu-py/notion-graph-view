@@ -1,4 +1,4 @@
-package com.dimanupy.notes.note.domain
+package com.dimanupy.backend.graph.driven.forStoringNotes
 
 interface NotesRepository {
     fun save(notes: List<Note>)

@@ -1,4 +1,4 @@
-package com.dimanupy.notes.note.infra
+package com.dimanupy.backend.driven.forStoringNotes
 
 import com.dimanupy.notes.note.domain.InvalidNotionDatabase
 import com.dimanupy.notes.note.domain.Note

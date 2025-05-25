@@ -1,7 +1,7 @@
 package com.dimanupy.backend.config
 
-import com.dimanupy.notes.note.infra.HttpNotionRepository
-import com.dimanupy.notes.note.infra.NotionConnectionData
+import com.dimanupy.backend.driven.forStoringNotes.HttpNotionRepository
+import com.dimanupy.backend.driven.forStoringNotes.NotionConnectionData
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.http4k.client.JavaHttpClient
