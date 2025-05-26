@@ -1,8 +1,8 @@
 package com.dimanupy.backend.driven.forCommunicatingWithNotion
 
-import com.dimanupy.backend.graph.notion.InvalidNotionDatabase
 import com.dimanupy.backend.graph.note.Note
 import com.dimanupy.backend.graph.note.NotePrimitivesMother
+import com.dimanupy.backend.graph.notion.InvalidNotionDatabase
 import com.dimanupy.backend.graph.notion.NotionDatabaseIdMother
 import com.dimanupy.backend.graph.notion.UnexpectedNotionException
 import io.mockk.every

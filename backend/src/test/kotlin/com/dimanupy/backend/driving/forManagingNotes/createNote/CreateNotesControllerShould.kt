@@ -94,5 +94,4 @@ class CreateNotesControllerShould {
             body("path", CoreMatchers.equalTo(path))
         }
     }
-
 }

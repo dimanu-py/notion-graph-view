@@ -1,11 +1,11 @@
 package com.dimanupy.backend.driven.forCommunicatingWithNotion
 
-import com.dimanupy.backend.graph.notion.InvalidNotionDatabase
+import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.ForCommunicatingWithNotion
 import com.dimanupy.backend.graph.note.Note
 import com.dimanupy.backend.graph.note.NotePrimitives
+import com.dimanupy.backend.graph.notion.InvalidNotionDatabase
 import com.dimanupy.backend.graph.notion.NotionDatabaseId
 import com.dimanupy.backend.graph.notion.UnexpectedNotionException
-import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.ForCommunicatingWithNotion
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request
@@ -33,7 +33,7 @@ class HttpForCommunicatingWithNotion(private val client: HttpHandler, private va
 
     private fun buildRequestFor(databaseId: NotionDatabaseId) = Request.Companion(
         Method.POST,
-        "https://api.notion.com/v1/databases/${databaseId.value}/query"
+        "https://api.notion.com/v1/databases/${databaseId.value}/query",
     )
         .header("Authorization", "Bearer ${connectionData.apiKey}")
         .header("Notion-Version", "2022-06-28")

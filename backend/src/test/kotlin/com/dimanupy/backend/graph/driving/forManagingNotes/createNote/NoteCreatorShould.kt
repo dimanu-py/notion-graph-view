@@ -34,7 +34,7 @@ class NoteCreatorShould {
 
         noteCreator(note)
 
-        verify(exactly = 1) { forStoringNotes.save(match<Note> { it.toPrimitives() == note })}
+        verify(exactly = 1) { forStoringNotes.save(match<Note> { it.toPrimitives() == note }) }
     }
 
     @Test
@@ -64,7 +64,7 @@ class NoteCreatorShould {
         @JvmStatic
         fun invalidEmptyFieldProvider(): Stream<Arguments> = Stream.of(
             Arguments.of("url", NoteUrlPrimitivesMother.empty(), NoteUrlCannotBeEmpty::class.java),
-            Arguments.of("title", NoteTitlePrimitivesMother.empty(), NoteTitleCannotBeEmpty::class.java)
+            Arguments.of("title", NoteTitlePrimitivesMother.empty(), NoteTitleCannotBeEmpty::class.java),
         )
     }
 }

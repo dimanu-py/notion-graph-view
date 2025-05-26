@@ -4,7 +4,7 @@ data class NotePrimitives(
     val notionId: String,
     val title: String,
     val url: String,
-    val relatedNotes: List<String>
+    val relatedNotes: List<String>,
 )
 
 data class Note private constructor(
@@ -26,6 +26,6 @@ data class Note private constructor(
         notionId = noteNotionId.value,
         title = title.value,
         url = url.value,
-        relatedNotes = relatedNotes.value.map { it.value }
+        relatedNotes = relatedNotes.value.map { it.value },
     )
 }

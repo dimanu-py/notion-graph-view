@@ -1,7 +1,7 @@
 package com.dimanupy.backend.driven.forStoringNotes
 
-import com.dimanupy.backend.graph.note.Note
 import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
+import com.dimanupy.backend.graph.note.Note
 import org.jetbrains.exposed.sql.batchInsert
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll

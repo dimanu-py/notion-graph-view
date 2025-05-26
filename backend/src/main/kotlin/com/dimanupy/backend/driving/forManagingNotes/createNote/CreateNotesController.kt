@@ -14,13 +14,14 @@ class CreateNotesController(private val noteCreator: NoteCreator) {
 
     @PostMapping
     fun createNote(@RequestBody request: CreateNoteRequest): ResponseEntity<String> {
-        noteCreator(NotePrimitives(
-            notionId = request.id,
-            title = request.title,
-            url = request.url,
-            relatedNotes = request.relatedNotes
-        ))
+        noteCreator(
+            NotePrimitives(
+                notionId = request.id,
+                title = request.title,
+                url = request.url,
+                relatedNotes = request.relatedNotes,
+            ),
+        )
         return ResponseEntity.ok().build()
     }
-
 }

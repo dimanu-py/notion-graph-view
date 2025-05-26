@@ -43,6 +43,6 @@ object NotesModel : Table("notes") {
             title = note[title],
             url = note[url],
             relatedNotes = note[relatedNotes],
-        )
+        ),
     )
 }

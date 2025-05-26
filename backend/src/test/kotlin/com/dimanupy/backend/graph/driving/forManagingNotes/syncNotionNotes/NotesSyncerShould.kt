@@ -1,7 +1,7 @@
 package com.dimanupy.backend.graph.driving.forManagingNotes.syncNotionNotes
 
-import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
 import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.ForCommunicatingWithNotion
+import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
 import com.dimanupy.backend.graph.note.InvalidNotionNoteIdFormat
 import com.dimanupy.backend.graph.note.Note
 import com.dimanupy.backend.graph.note.NotePrimitivesMother

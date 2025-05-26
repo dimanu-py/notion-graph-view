@@ -76,5 +76,4 @@ class PostgresForStoringNotesShould {
         assert(savedNotes.isNotEmpty())
         assertEquals(savedNotes.first(), note)
     }
-
 }
