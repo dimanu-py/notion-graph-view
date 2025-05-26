@@ -1,4 +1,6 @@
-package com.dimanupy.backend.graph
+package com.dimanupy.backend.graph.notion
+
+import com.dimanupy.backend.graph.RandomGenerator
 
 object NotionDatabaseIdMother {
 

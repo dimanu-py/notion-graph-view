@@ -1,4 +1,6 @@
-package com.dimanupy.backend.graph
+package com.dimanupy.backend.graph.note
+
+import com.dimanupy.backend.graph.ValueObject
 
 class NoteRelatedNotes private constructor(private val _value: List<NoteNotionId>) : ValueObject<List<NoteNotionId>>(_value) {
     companion object {

@@ -1,4 +1,6 @@
-package com.dimanupy.backend.graph
+package com.dimanupy.backend.graph.note
+
+import com.dimanupy.backend.graph.RandomGenerator
 
 object NoteRelatedNotesPrimitivesMother {
 

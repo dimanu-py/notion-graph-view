@@ -1,4 +1,6 @@
-package com.dimanupy.backend.graph
+package com.dimanupy.backend.graph.note
+
+import com.dimanupy.backend.graph.ValueObject
 
 class NoteUrl(private val _value: String) : ValueObject<String>(_value) {
     companion object {

@@ -1,4 +1,4 @@
-package com.dimanupy.backend.graph
+package com.dimanupy.backend.graph.note
 
 data class NotePrimitives(
     val notionId: String,

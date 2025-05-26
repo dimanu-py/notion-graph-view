@@ -3,6 +3,11 @@ package com.dimanupy.backend.graph.driving.forManagingNotes.syncNotionNotes
 import com.dimanupy.backend.graph.*
 import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
 import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.ForCommunicatingWithNotion
+import com.dimanupy.backend.graph.note.InvalidNotionNoteIdFormat
+import com.dimanupy.backend.graph.note.Note
+import com.dimanupy.backend.graph.note.NoteMother
+import com.dimanupy.backend.graph.notion.InvalidDatabaseIdFormat
+import com.dimanupy.backend.graph.notion.NotionDatabaseIdMother
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify

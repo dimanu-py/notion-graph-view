@@ -1,10 +1,10 @@
 package com.dimanupy.backend.driven.forCommunicatingWithNotion
 
-import com.dimanupy.backend.graph.InvalidNotionDatabase
-import com.dimanupy.backend.graph.Note
-import com.dimanupy.backend.graph.NoteMother
-import com.dimanupy.backend.graph.NotionDatabaseIdMother
-import com.dimanupy.backend.graph.UnexpectedNotionException
+import com.dimanupy.backend.graph.notion.InvalidNotionDatabase
+import com.dimanupy.backend.graph.note.Note
+import com.dimanupy.backend.graph.note.NoteMother
+import com.dimanupy.backend.graph.notion.NotionDatabaseIdMother
+import com.dimanupy.backend.graph.notion.UnexpectedNotionException
 import io.mockk.every
 import io.mockk.mockk
 import org.http4k.client.JavaHttpClient

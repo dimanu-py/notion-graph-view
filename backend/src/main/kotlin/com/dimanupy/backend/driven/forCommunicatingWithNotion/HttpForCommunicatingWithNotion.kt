@@ -1,10 +1,10 @@
 package com.dimanupy.backend.driven.forCommunicatingWithNotion
 
-import com.dimanupy.backend.graph.InvalidNotionDatabase
-import com.dimanupy.backend.graph.Note
-import com.dimanupy.backend.graph.NotePrimitives
-import com.dimanupy.backend.graph.NotionDatabaseId
-import com.dimanupy.backend.graph.UnexpectedNotionException
+import com.dimanupy.backend.graph.notion.InvalidNotionDatabase
+import com.dimanupy.backend.graph.note.Note
+import com.dimanupy.backend.graph.note.NotePrimitives
+import com.dimanupy.backend.graph.notion.NotionDatabaseId
+import com.dimanupy.backend.graph.notion.UnexpectedNotionException
 import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.ForCommunicatingWithNotion
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method

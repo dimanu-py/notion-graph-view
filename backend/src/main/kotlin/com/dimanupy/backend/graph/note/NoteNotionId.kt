@@ -1,5 +1,6 @@
-package com.dimanupy.backend.graph
+package com.dimanupy.backend.graph.note
 
+import com.dimanupy.backend.graph.ValueObject
 import java.util.UUID
 
 class NoteNotionId(private val _value: String) : ValueObject<String>(_value) {

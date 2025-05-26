@@ -1,6 +1,6 @@
 package com.dimanupy.backend.graph.driven.forStoringNotes
 
-import com.dimanupy.backend.graph.Note
+import com.dimanupy.backend.graph.note.Note
 
 interface ForStoringNotes {
     fun save(notes: List<Note>)

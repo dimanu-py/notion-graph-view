@@ -1,4 +1,4 @@
-package com.dimanupy.backend.graph
+package com.dimanupy.backend.graph.notion
 
 sealed class NotionError(
     override val message: String,

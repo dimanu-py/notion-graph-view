@@ -1,4 +1,6 @@
-package com.dimanupy.backend.graph
+package com.dimanupy.backend.graph.note
+
+import com.dimanupy.backend.graph.ValueObject
 
 class NoteTitle(private val _value: String) : ValueObject<String>(_value) {
     override fun validate(value: String) {
