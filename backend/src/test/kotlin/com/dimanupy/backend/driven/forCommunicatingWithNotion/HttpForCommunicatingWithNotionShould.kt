@@ -17,14 +17,14 @@ import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
 
-class HttpNotionRepositoryShould {
+class HttpForCommunicatingWithNotionShould {
 
-    private lateinit var httpNotionRepository: HttpNotionRepository
+    private lateinit var httpNotionRepository: HttpForCommunicatingWithNotion
     private val connectionData = NotionConnectionData(apiKey = System.getenv("NOTION_API_KEY"))
 
     @BeforeEach
     fun setUp() {
-        httpNotionRepository = HttpNotionRepository(client = JavaHttpClient(), connectionData = connectionData)
+        httpNotionRepository = HttpForCommunicatingWithNotion(client = JavaHttpClient(), connectionData = connectionData)
     }
 
     @Test
@@ -46,7 +46,7 @@ class HttpNotionRepositoryShould {
         )
         val expectedNotes = notesPrimitives.map { Note.Companion.fromPrimitives(it) }
 
-        val notes = httpNotionRepository.fetch(databaseId)
+        val notes = httpNotionRepository.getAllNotes(databaseId)
 
         assertEquals(expectedNotes, notes)
     }
@@ -56,7 +56,7 @@ class HttpNotionRepositoryShould {
         val databaseId = NotionDatabaseIdMother.create()
 
         val error = assertThrows<InvalidNotionDatabase> {
-            httpNotionRepository.fetch(databaseId)
+            httpNotionRepository.getAllNotes(databaseId)
         }
 
         assertEquals("Database with id ${databaseId.value} is not shared with your integration.", error.message)
@@ -66,11 +66,11 @@ class HttpNotionRepositoryShould {
     fun `throw error if Notion server returns a 500 status code`() {
         val client = mockk<HttpHandler>()
         every { client(any()) } returns Response.Companion(Status.Companion.INTERNAL_SERVER_ERROR)
-        val repository = HttpNotionRepository(client = client, connectionData = connectionData)
+        val repository = HttpForCommunicatingWithNotion(client = client, connectionData = connectionData)
         val databaseId = NotionDatabaseIdMother.create()
 
         val error = assertThrows<UnexpectedNotionException> {
-            repository.fetch(databaseId)
+            repository.getAllNotes(databaseId)
         }
 
         assertContains(error.message, "Unexpected error when fetching Notion database")

@@ -1,20 +1,19 @@
 package com.dimanupy.backend.driven.forCommunicatingWithNotion
 
-import com.dimanupy.backend.driven.forCommunicatingWithNotion.NotionConnectionData
 import com.dimanupy.backend.graph.InvalidNotionDatabase
 import com.dimanupy.backend.graph.Note
 import com.dimanupy.backend.graph.NotePrimitives
 import com.dimanupy.backend.graph.NotionDatabaseId
 import com.dimanupy.backend.graph.UnexpectedNotionException
-import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.NotionRepository
+import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.ForCommunicatingWithNotion
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.json.JSONObject
 
-class HttpNotionRepository(private val client: HttpHandler, private val connectionData: NotionConnectionData) : NotionRepository {
-    override fun fetch(databaseId: NotionDatabaseId): List<Note> {
+class HttpForCommunicatingWithNotion(private val client: HttpHandler, private val connectionData: NotionConnectionData) : ForCommunicatingWithNotion {
+    override fun getAllNotes(databaseId: NotionDatabaseId): List<Note> {
         // TODO: Manage when response has pagination when there are more than 100 notes. In cases where the number of notes is greater
         //  than 100, the response will contain a "has_more" field and a "next_cursor" field. The next_cursor field should be used
         //  to fetch the next page of results. The has_more field indicates whether there are more pages of results to fetch.

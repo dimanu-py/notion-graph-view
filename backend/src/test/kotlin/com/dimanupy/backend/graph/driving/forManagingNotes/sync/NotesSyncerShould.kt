@@ -2,7 +2,7 @@ package com.dimanupy.backend.graph.driving.forManagingNotes.sync
 
 import com.dimanupy.backend.graph.*
 import com.dimanupy.backend.graph.driven.forStoringNotes.NotesRepository
-import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.NotionRepository
+import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.ForCommunicatingWithNotion
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -14,14 +14,14 @@ import kotlin.test.assertEquals
 class NotesSyncerShould {
 
     private lateinit var notesSyncer: NotesSyncer
-    private lateinit var notionRepository: NotionRepository
+    private lateinit var forCommunicatingWithNotion: ForCommunicatingWithNotion
     private lateinit var notesRepository: NotesRepository
 
     @BeforeEach
     fun setUp() {
-        notionRepository = mockk<NotionRepository>()
+        forCommunicatingWithNotion = mockk<ForCommunicatingWithNotion>()
         notesRepository = mockk<NotesRepository>(relaxUnitFun = true)
-        notesSyncer = NotesSyncer(notionRepository, notesRepository)
+        notesSyncer = NotesSyncer(forCommunicatingWithNotion, notesRepository)
     }
 
     @Test
@@ -31,11 +31,11 @@ class NotesSyncerShould {
             Note.fromPrimitives(NoteMother.create()),
             Note.fromPrimitives(NoteMother.create()),
         )
-        every { notionRepository.fetch(databaseId) } returns notes
+        every { forCommunicatingWithNotion.getAllNotes(databaseId) } returns notes
 
         notesSyncer(databaseId.value)
 
-        verify { notionRepository.fetch(databaseId) }
+        verify { forCommunicatingWithNotion.getAllNotes(databaseId) }
         verify { notesRepository.save(notes) }
     }
 
@@ -48,7 +48,7 @@ class NotesSyncerShould {
         }
 
         assertEquals("Database id must have a valid UUID format: $databaseId", error.message)
-        verify(exactly = 0) { notionRepository.fetch(any()) }
+        verify(exactly = 0) { forCommunicatingWithNotion.getAllNotes(any()) }
     }
 
     @Test
