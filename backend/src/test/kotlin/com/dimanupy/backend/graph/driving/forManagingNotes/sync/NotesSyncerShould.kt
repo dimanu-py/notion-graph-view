@@ -1,7 +1,7 @@
 package com.dimanupy.backend.graph.driving.forManagingNotes.sync
 
 import com.dimanupy.backend.graph.*
-import com.dimanupy.backend.graph.driven.forStoringNotes.NotesRepository
+import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
 import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.ForCommunicatingWithNotion
 import io.mockk.every
 import io.mockk.mockk
@@ -15,13 +15,13 @@ class NotesSyncerShould {
 
     private lateinit var notesSyncer: NotesSyncer
     private lateinit var forCommunicatingWithNotion: ForCommunicatingWithNotion
-    private lateinit var notesRepository: NotesRepository
+    private lateinit var forStoringNotes: ForStoringNotes
 
     @BeforeEach
     fun setUp() {
         forCommunicatingWithNotion = mockk<ForCommunicatingWithNotion>()
-        notesRepository = mockk<NotesRepository>(relaxUnitFun = true)
-        notesSyncer = NotesSyncer(forCommunicatingWithNotion, notesRepository)
+        forStoringNotes = mockk<ForStoringNotes>(relaxUnitFun = true)
+        notesSyncer = NotesSyncer(forCommunicatingWithNotion, forStoringNotes)
     }
 
     @Test
@@ -36,7 +36,7 @@ class NotesSyncerShould {
         notesSyncer(databaseId.value)
 
         verify { forCommunicatingWithNotion.getAllNotes(databaseId) }
-        verify { notesRepository.save(notes) }
+        verify { forStoringNotes.save(notes) }
     }
 
     @Test

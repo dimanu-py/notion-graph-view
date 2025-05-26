@@ -1,13 +1,13 @@
 package com.dimanupy.backend.driven.forStoringNotes
 
 import com.dimanupy.backend.graph.Note
-import com.dimanupy.backend.graph.driven.forStoringNotes.NotesRepository
+import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
 import org.jetbrains.exposed.sql.batchInsert
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
-class PostgresNotesRepository : NotesRepository {
+class PostgresForStoringNotes : ForStoringNotes {
     override fun save(notes: List<Note>) {
         transaction {
             NotesModel.batchInsert(notes) { note ->

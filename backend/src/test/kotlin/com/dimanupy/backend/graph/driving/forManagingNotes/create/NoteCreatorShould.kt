@@ -1,7 +1,7 @@
 package com.dimanupy.backend.graph.driving.forManagingNotes.create
 
 import com.dimanupy.backend.graph.*
-import com.dimanupy.backend.graph.driven.forStoringNotes.NotesRepository
+import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
@@ -14,12 +14,12 @@ import kotlin.test.Test
 
 class NoteCreatorShould {
     private lateinit var noteCreator: NoteCreator
-    private lateinit var notesRepository: NotesRepository
+    private lateinit var forStoringNotes: ForStoringNotes
 
     @BeforeEach
     fun setUp() {
-        notesRepository = mockk<NotesRepository>(relaxUnitFun = true)
-        noteCreator = NoteCreator(notesRepository)
+        forStoringNotes = mockk<ForStoringNotes>(relaxUnitFun = true)
+        noteCreator = NoteCreator(forStoringNotes)
     }
 
     @Test
@@ -28,7 +28,7 @@ class NoteCreatorShould {
 
         noteCreator(note)
 
-        verify(exactly = 1) { notesRepository.save(match<Note> { it.toPrimitives() == note })}
+        verify(exactly = 1) { forStoringNotes.save(match<Note> { it.toPrimitives() == note })}
     }
 
     @Test
@@ -37,7 +37,7 @@ class NoteCreatorShould {
 
         noteCreator(note)
 
-        verify(exactly = 1) { notesRepository.save(match<Note> { it.toPrimitives() == note }) }
+        verify(exactly = 1) { forStoringNotes.save(match<Note> { it.toPrimitives() == note }) }
     }
 
     @ParameterizedTest

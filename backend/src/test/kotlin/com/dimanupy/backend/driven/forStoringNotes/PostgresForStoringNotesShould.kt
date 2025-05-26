@@ -17,9 +17,9 @@ import kotlin.test.assertEquals
 
 @Testcontainers
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class PostgresNotesRepositoryShould {
+class PostgresForStoringNotesShould {
 
-    private lateinit var postgresRepository: PostgresNotesRepository
+    private lateinit var postgresRepository: PostgresForStoringNotes
 
     companion object {
         @Container
@@ -42,7 +42,7 @@ class PostgresNotesRepositoryShould {
             SchemaUtils.create(NotesModel)
         }
 
-        postgresRepository = PostgresNotesRepository()
+        postgresRepository = PostgresForStoringNotes()
     }
 
     @AfterEach

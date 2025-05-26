@@ -2,7 +2,7 @@ package com.dimanupy.backend.graph.driven.forStoringNotes
 
 import com.dimanupy.backend.graph.Note
 
-interface NotesRepository {
+interface ForStoringNotes {
     fun save(notes: List<Note>)
 
     fun save(note: Note)
