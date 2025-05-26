@@ -1,4 +1,4 @@
-package com.dimanupy.backend.graph.driving.forManagingNotes.sync
+package com.dimanupy.backend.graph.driving.forManagingNotes.syncNotionNotes
 
 import com.dimanupy.backend.graph.*
 import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes

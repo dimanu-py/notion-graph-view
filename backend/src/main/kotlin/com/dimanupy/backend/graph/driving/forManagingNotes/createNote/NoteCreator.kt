@@ -1,4 +1,4 @@
-package com.dimanupy.backend.graph.driving.forManagingNotes.create
+package com.dimanupy.backend.graph.driving.forManagingNotes.createNote
 
 import com.dimanupy.backend.graph.Note
 import com.dimanupy.backend.graph.NotePrimitives
