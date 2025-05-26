@@ -8,6 +8,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
@@ -32,17 +33,21 @@ class PostgresForStoringNotesShould {
     }
 
     @BeforeAll
-    fun setup() {
+    fun setupDatabase() {
         Database.connect(
             url = postgresContainer.jdbcUrl,
             user = postgresContainer.username,
             password = postgresContainer.password,
         )
+
+        postgresRepository = PostgresForStoringNotes()
+    }
+
+    @BeforeEach
+    fun setupSchema() {
         transaction {
             SchemaUtils.create(NotesModel)
         }
-
-        postgresRepository = PostgresForStoringNotes()
     }
 
     @AfterEach
