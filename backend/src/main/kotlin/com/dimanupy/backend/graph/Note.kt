@@ -8,14 +8,14 @@ data class NotePrimitives(
 )
 
 data class Note private constructor(
-    private val notionNoteId: NotionNoteId,
+    private val noteNotionId: NoteNotionId,
     private val title: NoteTitle,
     private val url: NoteUrl,
     private val relatedNotes: NoteRelatedNotes,
 ) {
     companion object {
         fun fromPrimitives(primitives: NotePrimitives): Note = Note(
-            notionNoteId = NotionNoteId(primitives.notionId),
+            noteNotionId = NoteNotionId(primitives.notionId),
             title = NoteTitle(primitives.title),
             url = NoteUrl(primitives.url),
             relatedNotes = NoteRelatedNotes.create(primitives.relatedNotes),
@@ -23,7 +23,7 @@ data class Note private constructor(
     }
 
     fun toPrimitives(): NotePrimitives = NotePrimitives(
-        notionId = notionNoteId.value,
+        notionId = noteNotionId.value,
         title = title.value,
         url = url.value,
         relatedNotes = relatedNotes.value.map { it.value }

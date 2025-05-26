@@ -2,7 +2,7 @@ package com.dimanupy.backend.graph
 
 import java.util.UUID
 
-class NotionNoteId(private val _value: String) : ValueObject<String>(_value) {
+class NoteNotionId(private val _value: String) : ValueObject<String>(_value) {
 
     override fun validate(value: String) {
         ensureIsNotEmpty(value)

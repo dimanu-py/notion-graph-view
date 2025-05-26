@@ -1,13 +1,13 @@
 package com.dimanupy.backend.graph
 
-class NoteRelatedNotes private constructor(private val _value: List<NotionNoteId>) : ValueObject<List<NotionNoteId>>(_value) {
+class NoteRelatedNotes private constructor(private val _value: List<NoteNotionId>) : ValueObject<List<NoteNotionId>>(_value) {
     companion object {
         fun create(notesIds: List<String>): NoteRelatedNotes = NoteRelatedNotes(
-            notesIds.map { NotionNoteId(it) },
+            notesIds.map { NoteNotionId(it) },
         )
     }
 
-    override fun validate(value: List<NotionNoteId>) {
+    override fun validate(value: List<NoteNotionId>) {
         // No extra validation needed
     }
 
