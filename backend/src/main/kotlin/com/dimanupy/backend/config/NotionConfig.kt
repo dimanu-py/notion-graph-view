@@ -1,7 +1,7 @@
 package com.dimanupy.backend.config
 
-import com.dimanupy.notes.note.infra.HttpNotionRepository
-import com.dimanupy.notes.note.infra.NotionConnectionData
+import com.dimanupy.backend.driven.forCommunicatingWithNotion.HttpForCommunicatingWithNotion
+import com.dimanupy.backend.driven.forCommunicatingWithNotion.NotionConnectionData
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.http4k.client.JavaHttpClient
@@ -17,7 +17,7 @@ class NotionConfig {
     fun notionConnectionData() = NotionConnectionData()
 
     @Bean
-    fun notionRepository(notionConnectionData: NotionConnectionData) = HttpNotionRepository(
+    fun notionRepository(notionConnectionData: NotionConnectionData) = HttpForCommunicatingWithNotion(
         client = JavaHttpClient(),
         connectionData = notionConnectionData,
     )

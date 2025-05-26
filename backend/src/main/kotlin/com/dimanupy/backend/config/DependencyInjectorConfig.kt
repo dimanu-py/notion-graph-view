@@ -1,21 +1,21 @@
 package com.dimanupy.backend.config
 
-import com.dimanupy.notes.note.application.create.NoteCreator
-import com.dimanupy.notes.note.application.sync.NotesSyncer
-import com.dimanupy.notes.note.domain.NotesRepository
-import com.dimanupy.notes.note.domain.NotionRepository
-import com.dimanupy.notes.note.infra.PostgresNotesRepository
+import com.dimanupy.backend.driven.forStoringNotes.PostgresForStoringNotes
+import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.ForCommunicatingWithNotion
+import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
+import com.dimanupy.backend.graph.driving.forManagingNotes.createNote.NoteCreator
+import com.dimanupy.backend.graph.driving.forManagingNotes.syncNotionNotes.NotesSyncer
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
 class DependencyInjectorConfig {
     @Bean
-    fun notesRepository() = PostgresNotesRepository()
+    fun notesRepository() = PostgresForStoringNotes()
 
     @Bean
-    fun notesSyncer(notionRepository: NotionRepository, notesRepository: NotesRepository): NotesSyncer = NotesSyncer(notionRepository, notesRepository)
+    fun notesSyncer(forCommunicatingWithNotion: ForCommunicatingWithNotion, forStoringNotes: ForStoringNotes): NotesSyncer = NotesSyncer(forCommunicatingWithNotion, forStoringNotes)
 
     @Bean
-    fun notesCreator(notesRepository: NotesRepository): NoteCreator = NoteCreator(notesRepository)
+    fun notesCreator(forStoringNotes: ForStoringNotes): NoteCreator = NoteCreator(forStoringNotes)
 }
