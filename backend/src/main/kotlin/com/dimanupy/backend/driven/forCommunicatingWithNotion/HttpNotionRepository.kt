@@ -1,11 +1,12 @@
-package com.dimanupy.backend.driven.forStoringNotes
+package com.dimanupy.backend.driven.forCommunicatingWithNotion
 
+import com.dimanupy.backend.driven.forCommunicatingWithNotion.NotionConnectionData
 import com.dimanupy.backend.graph.InvalidNotionDatabase
 import com.dimanupy.backend.graph.Note
 import com.dimanupy.backend.graph.NotePrimitives
 import com.dimanupy.backend.graph.NotionDatabaseId
-import com.dimanupy.backend.graph.driven.forStoringNotes.NotionRepository
 import com.dimanupy.backend.graph.UnexpectedNotionException
+import com.dimanupy.backend.graph.driven.forStoringNotes.NotionRepository
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request
@@ -31,7 +32,10 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
         }
     }
 
-    private fun buildRequestFor(databaseId: NotionDatabaseId) = Request(Method.POST, "https://api.notion.com/v1/databases/${databaseId.value}/query")
+    private fun buildRequestFor(databaseId: NotionDatabaseId) = Request.Companion(
+        Method.POST,
+        "https://api.notion.com/v1/databases/${databaseId.value}/query"
+    )
         .header("Authorization", "Bearer ${connectionData.apiKey}")
         .header("Notion-Version", "2022-06-28")
 
@@ -52,7 +56,7 @@ class HttpNotionRepository(private val client: HttpHandler, private val connecti
             val relatedNotes = (0 until rawRelatedNotes.length())
                 .map { rawRelatedNotes.getJSONObject(it).getString("id") }
 
-            notes.add(Note.fromPrimitives(NotePrimitives(id, title, url, relatedNotes)))
+            notes.add(Note.Companion.fromPrimitives(NotePrimitives(id, title, url, relatedNotes)))
         }
         return notes
     }

@@ -1,6 +1,10 @@
-package com.dimanupy.backend.driven.forStoringNotes
+package com.dimanupy.backend.driven.forCommunicatingWithNotion
 
-import com.dimanupy.backend.graph.*
+import com.dimanupy.backend.graph.InvalidNotionDatabase
+import com.dimanupy.backend.graph.Note
+import com.dimanupy.backend.graph.NoteMother
+import com.dimanupy.backend.graph.NotionDatabaseIdMother
+import com.dimanupy.backend.graph.UnexpectedNotionException
 import io.mockk.every
 import io.mockk.mockk
 import org.http4k.client.JavaHttpClient
@@ -40,7 +44,7 @@ class HttpNotionRepositoryShould {
                 relatedNotes = listOf("15bf5bab-5d4e-807b-bf58-ca937660b2fb"),
             ),
         )
-        val expectedNotes = notesPrimitives.map { Note.fromPrimitives(it) }
+        val expectedNotes = notesPrimitives.map { Note.Companion.fromPrimitives(it) }
 
         val notes = httpNotionRepository.fetch(databaseId)
 
@@ -61,7 +65,7 @@ class HttpNotionRepositoryShould {
     @Test
     fun `throw error if Notion server returns a 500 status code`() {
         val client = mockk<HttpHandler>()
-        every { client(any()) } returns Response(Status.INTERNAL_SERVER_ERROR)
+        every { client(any()) } returns Response.Companion(Status.Companion.INTERNAL_SERVER_ERROR)
         val repository = HttpNotionRepository(client = client, connectionData = connectionData)
         val databaseId = NotionDatabaseIdMother.create()
 
