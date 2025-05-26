@@ -1,7 +1,5 @@
 package com.dimanupy.backend.graph
 
-import com.dimanupy.backend.graph.ValueObject
-
 class NoteRelatedNotes private constructor(private val _value: List<NotionNoteId>) : ValueObject<List<NotionNoteId>>(_value) {
     companion object {
         fun create(notesIds: List<String>): NoteRelatedNotes = NoteRelatedNotes(

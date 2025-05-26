@@ -1,7 +1,5 @@
 package com.dimanupy.backend.graph
 
-import com.dimanupy.backend.graph.ValueObject
-
 class NoteUrl(private val _value: String) : ValueObject<String>(_value) {
     companion object {
         private const val VALID_URL_PATTERN = "^(https?://)?(www\\.)?notion\\.so/.*"

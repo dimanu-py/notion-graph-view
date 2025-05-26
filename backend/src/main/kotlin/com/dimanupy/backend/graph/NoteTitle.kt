@@ -1,7 +1,5 @@
 package com.dimanupy.backend.graph
 
-import com.dimanupy.backend.graph.ValueObject
-
 class NoteTitle(private val _value: String) : ValueObject<String>(_value) {
     override fun validate(value: String) {
         ensureIsNotEmpty(value)
