@@ -1,11 +1,10 @@
 package com.dimanupy.backend.graph.driving.forManagingNotes.syncNotionNotes
 
-import com.dimanupy.backend.graph.*
 import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
 import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.ForCommunicatingWithNotion
 import com.dimanupy.backend.graph.note.InvalidNotionNoteIdFormat
 import com.dimanupy.backend.graph.note.Note
-import com.dimanupy.backend.graph.note.NoteMother
+import com.dimanupy.backend.graph.note.NotePrimitivesMother
 import com.dimanupy.backend.graph.notion.InvalidDatabaseIdFormat
 import com.dimanupy.backend.graph.notion.NotionDatabaseIdMother
 import io.mockk.every
@@ -33,8 +32,8 @@ class NotesSyncerShould {
     fun `sync notes from Notion database`() {
         val databaseId = NotionDatabaseIdMother.create()
         val notes = listOf(
-            Note.fromPrimitives(NoteMother.create()),
-            Note.fromPrimitives(NoteMother.create()),
+            Note.fromPrimitives(NotePrimitivesMother.create()),
+            Note.fromPrimitives(NotePrimitivesMother.create()),
         )
         every { forCommunicatingWithNotion.getAllNotes(databaseId) } returns notes
 
@@ -59,7 +58,7 @@ class NotesSyncerShould {
     @Test
     fun `not sync notes if notion note id has not valid length`() {
         val idWithWrongLength = "2ca06a5b28d048859c299c02d"
-        val invalidNotePrimitives = NoteMother.create(notionId = idWithWrongLength)
+        val invalidNotePrimitives = NotePrimitivesMother.create(notionId = idWithWrongLength)
 
         val error = assertThrows<InvalidNotionNoteIdFormat> {
             Note.fromPrimitives(invalidNotePrimitives)

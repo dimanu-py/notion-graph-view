@@ -2,7 +2,7 @@ package com.dimanupy.backend.graph.driving.forManagingNotes.createNote
 
 import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
 import com.dimanupy.backend.graph.note.Note
-import com.dimanupy.backend.graph.note.NoteMother
+import com.dimanupy.backend.graph.note.NotePrimitivesMother
 import com.dimanupy.backend.graph.note.NoteRelatedNotesPrimitivesMother
 import com.dimanupy.backend.graph.note.NoteTitleCannotBeEmpty
 import com.dimanupy.backend.graph.note.NoteTitlePrimitivesMother
@@ -30,7 +30,7 @@ class NoteCreatorShould {
 
     @Test
     fun `create a valid note`() {
-        val note = NoteMother.create()
+        val note = NotePrimitivesMother.create()
 
         noteCreator(note)
 
@@ -39,7 +39,7 @@ class NoteCreatorShould {
 
     @Test
     fun `create a note with no relations`() {
-        val note = NoteMother.create(relatedNotes = NoteRelatedNotesPrimitivesMother.empty())
+        val note = NotePrimitivesMother.create(relatedNotes = NoteRelatedNotesPrimitivesMother.empty())
 
         noteCreator(note)
 
@@ -50,8 +50,8 @@ class NoteCreatorShould {
     @MethodSource("invalidEmptyFieldProvider")
     fun `not create a note if field is empty`(fieldName: String, fieldValue: String, expectedError: Class<out Throwable>) {
         val note = when (fieldName) {
-            "url" -> NoteMother.create(url = fieldValue)
-            "title" -> NoteMother.create(title = fieldValue)
+            "url" -> NotePrimitivesMother.create(url = fieldValue)
+            "title" -> NotePrimitivesMother.create(title = fieldValue)
             else -> throw IllegalArgumentException("Unknown field: $fieldName")
         }
 

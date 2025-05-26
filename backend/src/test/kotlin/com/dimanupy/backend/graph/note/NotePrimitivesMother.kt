@@ -1,6 +1,6 @@
 package com.dimanupy.backend.graph.note
 
-object NoteMother {
+object NotePrimitivesMother {
 
     fun create(
         notionId: String = NotionNoteIdPrimitivesMother.create(),

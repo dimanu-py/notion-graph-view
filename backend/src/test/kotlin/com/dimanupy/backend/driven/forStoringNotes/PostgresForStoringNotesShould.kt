@@ -1,7 +1,7 @@
 package com.dimanupy.backend.driven.forStoringNotes
 
 import com.dimanupy.backend.graph.note.Note
-import com.dimanupy.backend.graph.note.NoteMother
+import com.dimanupy.backend.graph.note.NotePrimitivesMother
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -54,9 +54,9 @@ class PostgresForStoringNotesShould {
     @Test
     fun `should save Notion notes`() {
         val notes = listOf(
-            Note.fromPrimitives(NoteMother.create()),
-            Note.fromPrimitives(NoteMother.create()),
-            Note.fromPrimitives(NoteMother.create()),
+            Note.fromPrimitives(NotePrimitivesMother.create()),
+            Note.fromPrimitives(NotePrimitivesMother.create()),
+            Note.fromPrimitives(NotePrimitivesMother.create()),
         )
 
         postgresRepository.save(notes)
@@ -68,7 +68,7 @@ class PostgresForStoringNotesShould {
 
     @Test
     fun `should save note`() {
-        val note = Note.fromPrimitives(NoteMother.create())
+        val note = Note.fromPrimitives(NotePrimitivesMother.create())
 
         postgresRepository.save(note)
 
