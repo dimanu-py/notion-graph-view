@@ -6,7 +6,7 @@ import com.dimanupy.backend.graph.Note
 import com.dimanupy.backend.graph.NotePrimitives
 import com.dimanupy.backend.graph.NotionDatabaseId
 import com.dimanupy.backend.graph.UnexpectedNotionException
-import com.dimanupy.backend.graph.driven.forStoringNotes.NotionRepository
+import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.NotionRepository
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request

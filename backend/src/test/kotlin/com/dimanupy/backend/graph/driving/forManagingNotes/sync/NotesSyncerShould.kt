@@ -2,7 +2,7 @@ package com.dimanupy.backend.graph.driving.forManagingNotes.sync
 
 import com.dimanupy.backend.graph.*
 import com.dimanupy.backend.graph.driven.forStoringNotes.NotesRepository
-import com.dimanupy.backend.graph.driven.forStoringNotes.NotionRepository
+import com.dimanupy.backend.graph.driven.forCommunicatingWithNotion.NotionRepository
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
