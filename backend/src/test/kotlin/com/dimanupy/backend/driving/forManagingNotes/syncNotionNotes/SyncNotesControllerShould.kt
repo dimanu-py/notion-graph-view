@@ -1,4 +1,4 @@
-package com.dimanupy.backend.driving.forManagingNotes.sync
+package com.dimanupy.backend.driving.forManagingNotes.syncNotionNotes
 
 import io.restassured.RestAssured
 import io.restassured.module.kotlin.extensions.Then

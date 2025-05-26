@@ -1,4 +1,4 @@
-package com.dimanupy.backend.driving.forManagingNotes.create
+package com.dimanupy.backend.driving.forManagingNotes.createNote
 
 import io.restassured.RestAssured
 import io.restassured.http.ContentType
