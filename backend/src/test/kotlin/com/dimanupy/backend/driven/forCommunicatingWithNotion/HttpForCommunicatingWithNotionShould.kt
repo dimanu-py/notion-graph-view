@@ -5,6 +5,7 @@ import com.dimanupy.backend.graph.note.NotePrimitivesMother
 import com.dimanupy.backend.graph.notion.InvalidNotionDatabase
 import com.dimanupy.backend.graph.notion.NotionDatabaseIdMother
 import com.dimanupy.backend.graph.notion.UnexpectedNotionException
+import io.github.cdimascio.dotenv.dotenv
 import io.mockk.every
 import io.mockk.mockk
 import org.http4k.client.JavaHttpClient
@@ -19,8 +20,12 @@ import kotlin.test.assertEquals
 
 class HttpForCommunicatingWithNotionShould {
 
+    private val dotenv = dotenv {
+        ignoreIfMissing = false
+    }
+
     private lateinit var httpNotionRepository: HttpForCommunicatingWithNotion
-    private val connectionData = NotionConnectionData(apiKey = System.getenv("NOTION_API_KEY"))
+    private val connectionData = NotionConnectionData(apiKey = dotenv["NOTION_API_KEY"])
 
     @BeforeEach
     fun setUp() {
@@ -29,7 +34,7 @@ class HttpForCommunicatingWithNotionShould {
 
     @Test
     fun `fetch notes from valid Notion database`() {
-        val databaseId = NotionDatabaseIdMother.create(System.getenv("TEST_DATABASE_ID"))
+        val databaseId = NotionDatabaseIdMother.create(dotenv["TEST_DATABASE_ID"])
         val notesPrimitives = listOf(
             NotePrimitivesMother.create(
                 notionId = "15bf5bab-5d4e-807b-bf58-ca937660b2fb",
