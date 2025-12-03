@@ -26,4 +26,3 @@ class DatabaseConfig {
         return Database.connect(dataSource)
     }
 }
-
