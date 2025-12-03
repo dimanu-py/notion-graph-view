@@ -113,6 +113,7 @@ dependencies {
         exclude(group = "org.yaml", module = "snakeyaml")
     }
     testImplementation("org.yaml:snakeyaml:2.3")
+    testImplementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 }
 
 kotlin {
