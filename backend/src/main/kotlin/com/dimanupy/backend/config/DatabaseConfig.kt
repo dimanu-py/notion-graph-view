@@ -1,27 +1,14 @@
 package com.dimanupy.backend.config
 
-import com.dimanupy.backend.driven.forCommunicatingWithNotion.HttpForCommunicatingWithNotion
-import com.dimanupy.backend.driven.forCommunicatingWithNotion.NotionConnectionData
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
-import org.http4k.client.JavaHttpClient
 import org.jetbrains.exposed.sql.Database
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class NotionConfig {
-    @Bean
-    @ConfigurationProperties(prefix = "notion.integration")
-    fun notionConnectionData() = NotionConnectionData()
-
-    @Bean
-    fun notionRepository(notionConnectionData: NotionConnectionData) = HttpForCommunicatingWithNotion(
-        client = JavaHttpClient(),
-        connectionData = notionConnectionData,
-    )
-
+class DatabaseConfig {
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
     fun databaseConnectionData() = DatabaseConnectionData()
@@ -39,3 +26,4 @@ class NotionConfig {
         return Database.connect(dataSource)
     }
 }
+
