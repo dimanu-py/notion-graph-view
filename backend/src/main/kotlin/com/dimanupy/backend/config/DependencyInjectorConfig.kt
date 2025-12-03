@@ -19,13 +19,13 @@ class DependencyInjectorConfig {
     fun notionConnectionData() = NotionConnectionData()
 
     @Bean
-    fun notionRepository(notionConnectionData: NotionConnectionData) = HttpForCommunicatingWithNotion(
+    fun forCommunicatingWithNotion(notionConnectionData: NotionConnectionData) = HttpForCommunicatingWithNotion(
         client = JavaHttpClient(),
         connectionData = notionConnectionData,
     )
 
     @Bean
-    fun notesRepository() = PostgresForStoringNotes()
+    fun forStoringNotes() = PostgresForStoringNotes()
 
     @Bean
     fun notesSyncer(
