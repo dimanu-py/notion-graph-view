@@ -82,7 +82,6 @@ subprojects {
     }
 
     dependencies {
-
     }
 }
 
@@ -102,7 +101,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.http4k:http4k-core:5.12.0.0")
     implementation("org.json:json:20250107")
-
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
