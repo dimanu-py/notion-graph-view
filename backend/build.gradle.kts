@@ -42,9 +42,10 @@ allprojects {
         testImplementation(kotlin("test"))
         testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
-        testImplementation("org.testcontainers:postgresql:1.19.0")
+        testImplementation("org.testcontainers:postgresql:1.21.3")
+        testImplementation("org.testcontainers:testcontainers:2.0.2")
         testImplementation("org.postgresql:postgresql:42.5.4")
-        testImplementation("org.testcontainers:junit-jupiter:1.19.0")
+        testImplementation("org.testcontainers:junit-jupiter:1.21.3")
     }
 
     tasks.withType<Test> {
