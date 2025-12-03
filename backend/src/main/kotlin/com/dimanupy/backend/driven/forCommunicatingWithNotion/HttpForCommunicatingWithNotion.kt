@@ -55,7 +55,7 @@ class HttpForCommunicatingWithNotion(private val client: HttpHandler, private va
             val relatedNotes = (0 until rawRelatedNotes.length())
                 .map { rawRelatedNotes.getJSONObject(it).getString("id") }
 
-            notes.add(Note.Companion.fromPrimitives(NotePrimitives(id, title, url, relatedNotes)))
+            notes.add(Note.fromPrimitives(NotePrimitives(id, title, url, relatedNotes)))
         }
         return notes
     }
