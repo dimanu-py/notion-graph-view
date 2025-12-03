@@ -34,13 +34,13 @@ class PostgresForStoringNotesShould {
 
     @BeforeAll
     fun setupDatabase() {
-        Database.connect(
+        val database = Database.connect(
             url = postgresContainer.jdbcUrl,
             user = postgresContainer.username,
             password = postgresContainer.password,
         )
 
-        postgresRepository = PostgresForStoringNotes()
+        postgresRepository = PostgresForStoringNotes(database)
     }
 
     @BeforeEach

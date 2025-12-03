@@ -8,6 +8,7 @@ import com.dimanupy.backend.graph.driven.forStoringNotes.ForStoringNotes
 import com.dimanupy.backend.graph.driving.forManagingNotes.createNote.NoteCreator
 import com.dimanupy.backend.graph.driving.forManagingNotes.syncNotionNotes.NotesSyncer
 import org.http4k.client.JavaHttpClient
+import org.jetbrains.exposed.sql.Database
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -25,7 +26,7 @@ class DependencyInjectorConfig {
     )
 
     @Bean
-    fun forStoringNotes() = PostgresForStoringNotes()
+    fun forStoringNotes(database: Database) = PostgresForStoringNotes(database)
 
     @Bean
     fun notesSyncer(
