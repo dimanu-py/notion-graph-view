@@ -37,16 +37,16 @@ class HttpForCommunicatingWithNotionShould {
         val databaseId = NotionDatabaseIdMother.create(dotenv["TEST_DATABASE_ID"])
         val notesPrimitives = listOf(
             NotePrimitivesMother.create(
-                notionId = "15bf5bab-5d4e-807b-bf58-ca937660b2fb",
-                url = "https://www.notion.so/Note-test-integration-2-15bf5bab5d4e807bbf58ca937660b2fb",
-                title = "Note test integration 2",
-                relatedNotes = listOf("15bf5bab-5d4e-8064-b9ce-dd66d2024fc6"),
-            ),
-            NotePrimitivesMother.create(
                 notionId = "15bf5bab-5d4e-8064-b9ce-dd66d2024fc6",
                 url = "https://www.notion.so/Note-test-integration-1-15bf5bab5d4e8064b9cedd66d2024fc6",
                 title = "Note test integration 1",
                 relatedNotes = listOf("15bf5bab-5d4e-807b-bf58-ca937660b2fb"),
+            ),
+            NotePrimitivesMother.create(
+                notionId = "15bf5bab-5d4e-807b-bf58-ca937660b2fb",
+                url = "https://www.notion.so/Note-test-integration-2-15bf5bab5d4e807bbf58ca937660b2fb",
+                title = "Note test integration 2",
+                relatedNotes = listOf("15bf5bab-5d4e-8064-b9ce-dd66d2024fc6"),
             ),
         )
         val expectedNotes = notesPrimitives.map { Note.Companion.fromPrimitives(it) }
