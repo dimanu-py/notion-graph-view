@@ -33,7 +33,7 @@ class HttpForCommunicatingWithNotion(private val client: HttpHandler, private va
 
     private fun buildRequestFor(databaseId: NotionDatabaseId) = Request.Companion(
         Method.POST,
-        "https://api.notion.com/v1/databases/${databaseId.value}/query",
+        "https://api.notion.com/v1/databases/${databaseId.notionFormat}/query",
     )
         .header("Authorization", "Bearer ${connectionData.apiKey}")
         .header("Notion-Version", "2022-06-28")
