@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
+import { NotionGraph } from '../../domain/notion-graph/notion-graph';
+import { NOTION_GRAPH_REPOSITORY } from '../../domain/notion-graph/notion-graph.repository';
 @Component({
   selector: 'app-graph-view-page',
   standalone: true,
@@ -125,9 +127,16 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class GraphViewPageComponent {
+export class GraphViewPageComponent implements OnInit {
+  private readonly notionGraphRepository = inject(NOTION_GRAPH_REPOSITORY);
+
   isRefreshing = false;
   searchQuery = '';
+  graph?: NotionGraph;
+
+  ngOnInit(): void {
+    this.loadGraph();
+  }
 
   onRefreshClick(): void {
     if (this.isRefreshing) {
@@ -139,6 +148,7 @@ export class GraphViewPageComponent {
     // For now, this just simulates a short refresh cycle.
     setTimeout(() => {
       console.log('[GraphView] Refresh requested');
+      this.loadGraph();
       this.isRefreshing = false;
     }, 600);
   }
@@ -147,6 +157,18 @@ export class GraphViewPageComponent {
     this.searchQuery = value;
     // Placeholder for future search/filtering of notes.
     console.log('[GraphView] Search query:', this.searchQuery);
+  }
+
+  private loadGraph(): void {
+    this.notionGraphRepository.loadGraph().subscribe({
+      next: (graph) => {
+        this.graph = graph;
+        console.log('[GraphView] Loaded graph:', graph);
+      },
+      error: (error) => {
+        console.error('[GraphView] Failed to load graph', error);
+      },
+    });
   }
 }
 
