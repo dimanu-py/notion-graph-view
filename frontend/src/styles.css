@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global reset for full-screen graph view experience */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: radial-gradient(circle at top, #322360 0, #050314 55%, #02010b 100%);
+    color: #f5f5ff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
