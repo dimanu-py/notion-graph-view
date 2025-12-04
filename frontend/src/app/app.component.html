@@ -20,19 +20,15 @@
     --gray-700: oklch(36.98% 0.014 302.71);
     --gray-400: oklch(70.9% 0.015 304.04);
 
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+    --red-to-pink-to-purple-vertical-gradient: linear-gradient(180deg,
+        var(--orange-red) 0%,
+        var(--vivid-pink) 50%,
+        var(--electric-violet) 100%);
 
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(90deg,
+        var(--orange-red) 0%,
+        var(--vivid-pink) 50%,
+        var(--electric-violet) 100%);
 
     --pill-accent: var(--bright-blue);
 
@@ -133,9 +129,11 @@
   .pill-group .pill:nth-child(6n + 1) {
     --pill-accent: var(--bright-blue);
   }
+
   .pill-group .pill:nth-child(6n + 2) {
     --pill-accent: var(--french-violet);
   }
+
   .pill-group .pill:nth-child(6n + 3),
   .pill-group .pill:nth-child(6n + 4),
   .pill-group .pill:nth-child(6n + 5) {
@@ -178,6 +176,23 @@
 </style>
 
 <main class="main">
+  <div class="content">
+    <div class="left-side">
+      <h1>Notion Graph View</h1>
+      <p>Visualize your Notion notes and their relations.</p>
+      <nav>
+        <a routerLink="/graph">Go to graph view</a>
+      </nav>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+      <router-outlet />
+    </div>
+  </div>
+</main>
+
+<!-- Placeholder content below kept for now; can be removed later if not needed. -->
+<!--
   <div class="content">
     <div class="left-side">
       <svg
@@ -322,15 +337,4 @@
       </div>
     </div>
   </div>
-</main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
+-->
