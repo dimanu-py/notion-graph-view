@@ -31,10 +31,9 @@ import { Component } from '@angular/core';
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        background: radial-gradient(circle at top, #322360 0, #050314 55%, #02010b 100%);
-        color: #f5f5ff;
-        padding: 1.5rem 2rem;
+        padding: 1.5rem 2rem 2rem;
         box-sizing: border-box;
+        color: #f5f5ff;
       }
 
       .graph-toolbar {
@@ -80,11 +79,9 @@ import { Component } from '@angular/core';
       }
 
       .graph-canvas {
-        flex: 1;
         position: relative;
-        border-radius: 1.5rem;
-        overflow: hidden;
-        background: radial-gradient(circle at center, #1c1740 0, #050314 60%, #020008 100%);
+        flex: 1;
+        margin-top: 0.75rem;
       }
 
       .graph-node {
