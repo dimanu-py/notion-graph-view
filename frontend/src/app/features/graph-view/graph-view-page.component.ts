@@ -13,7 +13,12 @@ import { Component } from '@angular/core';
             placeholder="Search notes..."
           />
         </div>
-        <button class="refresh-button" type="button">
+        <button
+          class="refresh-button"
+          type="button"
+          (click)="onRefreshClick()"
+          [disabled]="isRefreshing"
+        >
           ⟳
         </button>
       </header>
@@ -78,6 +83,12 @@ import { Component } from '@angular/core';
         box-shadow: 0 0 18px rgba(120, 187, 255, 0.4);
       }
 
+      .refresh-button:disabled {
+        opacity: 0.6;
+        cursor: default;
+        box-shadow: none;
+      }
+
       .graph-canvas {
         position: relative;
         flex: 1;
@@ -113,6 +124,22 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class GraphViewPageComponent { }
+export class GraphViewPageComponent {
+  isRefreshing = false;
+
+  onRefreshClick(): void {
+    if (this.isRefreshing) {
+      return;
+    }
+
+    this.isRefreshing = true;
+    // Placeholder for future backend call to refresh the Notion database.
+    // For now, this just simulates a short refresh cycle.
+    setTimeout(() => {
+      console.log('[GraphView] Refresh requested');
+      this.isRefreshing = false;
+    }, 600);
+  }
+}
 
 
