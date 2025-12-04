@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
             class="search-input"
             type="search"
             placeholder="Search notes..."
+            (input)="onSearchChange($any($event.target).value)"
           />
         </div>
         <button
@@ -126,6 +127,7 @@ import { Component } from '@angular/core';
 })
 export class GraphViewPageComponent {
   isRefreshing = false;
+  searchQuery = '';
 
   onRefreshClick(): void {
     if (this.isRefreshing) {
@@ -139,6 +141,12 @@ export class GraphViewPageComponent {
       console.log('[GraphView] Refresh requested');
       this.isRefreshing = false;
     }, 600);
+  }
+
+  onSearchChange(value: string): void {
+    this.searchQuery = value;
+    // Placeholder for future search/filtering of notes.
+    console.log('[GraphView] Search query:', this.searchQuery);
   }
 }
 
